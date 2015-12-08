@@ -1,2 +1,1 @@
-# ksiazeczka-zdrowia
-Książeczka zdrowia dziecka
+doc/project_description.txt
