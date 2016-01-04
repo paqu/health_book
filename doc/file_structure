@@ -1,0 +1,9 @@
+doc:
+-- directory with project documentation
+database:
+-- contains json file with patients, temporary sollution, in feauture expected is mondgo database with patients.
+lib:
+-- place where local, project-specfic module are located
+public:
+-- contains static resources 
+
