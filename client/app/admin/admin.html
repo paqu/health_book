@@ -2,18 +2,17 @@
 
 <div class="container">
 	<p>Panel administratora </p>
-
   <ul class="nav nav-tabs">
-   <li class="active"><a data-toggle="tab" href="#doctors">Lekarze</a></li>
+    <li class="active"><a data-toggle="tab" href="#doctors">Lekarze</a></li>
    <li><a data-toggle="tab" href="#users">Uzytkownicy</a></li>
-   <li><a data-toggle="tab" href="#pacients">Pacjenci</a></li>
   </ul>
   <div class="tab-content">
     <div id="doctors" class="tab-pane fade in active">
       <h3>Lista lekarzy w systemie</h3>
       <ul class="list-group">
-        <li class="list-group-item" ng-repeat="user in admin.users">
+        <li class="list-group-item" ng-repeat="user in admin.users | filter:{ role:'doctor'}">
             <strong>{{user.name}}</strong><br>
+            Rola:{{user.role}}<br>
             <span class="text-muted">{{user.email}}</span>
             <a ng-click="admin.delete(user)" class="trash"><span class="glyphicon glyphicon-trash pull-right"></span></a>
         </li>
@@ -21,10 +20,14 @@
     </div>
     <div id="users" class="tab-pane fade">
       <h3>Lista uzytkownikow zarejestrowanych w systemie</h3>
-    </div>
-    <div id="pacients" class="tab-pane fade">
-      <h3>Lista pacjentow dodanych w systemie</h3>
+      <ul class="list-group">
+        <li class="list-group-item" ng-repeat="user in admin.users | filter:{ role:'user'}">
+            <strong>{{user.name}}</strong><br>
+            Rola:{{user.role}}<br>
+            <span class="text-muted">{{user.email}}</span>
+            <a ng-click="admin.delete(user)" class="trash"><span class="glyphicon glyphicon-trash pull-right"></span></a>
+        </li>
+      </ul>
     </div>
    </div> 
-   
 </div>
