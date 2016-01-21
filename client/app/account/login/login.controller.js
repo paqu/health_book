@@ -20,9 +20,14 @@ class LoginController {
         email: this.user.email,
         password: this.user.password
       })
-      .then(() => {
+      .then((user) => {
         // Logged in, redirect to home
-        this.$state.go('main');
+        console.log(user);
+        if ('admin' == user.role)
+            this.$state.go('admin');
+        else
+            this.$state.go('main');
+
       })
       .catch(err => {
         this.errors.other = err.message;
