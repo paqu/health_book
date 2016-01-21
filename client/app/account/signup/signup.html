@@ -3,19 +3,19 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-12">
-      <h1>Sign up</h1>
+      <h1>Rejestracja w sytemie e-Ksiazeczka zdrowia</h1>
     </div>
     <div class="col-sm-12">
       <form class="form" name="form" ng-submit="vm.register(form)" novalidate>
 
         <div class="form-group" ng-class="{ 'has-success': form.name.$valid && vm.submitted,
                                             'has-error': form.name.$invalid && vm.submitted }">
-          <label>Name</label>
+          <label>Nazwisko</label>
 
           <input type="text" name="name" class="form-control" ng-model="vm.user.name"
                  required/>
           <p class="help-block" ng-show="form.name.$error.required && vm.submitted">
-            A name is required
+            Nazwisko jest wymagane.
           </p>
         </div>
 
@@ -27,10 +27,10 @@
                  required
                  mongoose-error/>
           <p class="help-block" ng-show="form.email.$error.email && vm.submitted">
-            Doesn't look like a valid email.
+           Email nie wyglada na poprawny.
           </p>
           <p class="help-block" ng-show="form.email.$error.required && vm.submitted">
-            What's your email address?
+           Jaki jest Twoj adres email?
           </p>
           <p class="help-block" ng-show="form.email.$error.mongoose">
             {{ vm.errors.email }}
@@ -39,7 +39,7 @@
 
         <div class="form-group" ng-class="{ 'has-success': form.password.$valid && vm.submitted,
                                             'has-error': form.password.$invalid && vm.submitted }">
-          <label>Password</label>
+          <label>Haslo</label>
 
           <input type="password" name="password" class="form-control" ng-model="vm.user.password"
                  ng-minlength="3"
@@ -47,7 +47,7 @@
                  mongoose-error/>
           <p class="help-block"
              ng-show="(form.password.$error.minlength || form.password.$error.required) && vm.submitted">
-            Password must be at least 3 characters.
+            Haslo musi posiadac conajmniej 3 znaki.
           </p>
           <p class="help-block" ng-show="form.password.$error.mongoose">
             {{ vm.errors.password }}
@@ -56,22 +56,22 @@
 
         <div class="form-group" ng-class="{ 'has-success': form.confirmPassword.$valid && vm.submitted,
                                             'has-error': form.confirmPassword.$invalid && vm.submitted }">
-          <label>Confirm Password</label>
+          <label>Potwierdz haslo</label>
           <input type="password" name="confirmPassword" class="form-control" ng-model="vm.user.confirmPassword"
                  match="vm.user.password"
                  ng-minlength="3" required/>
           <p class="help-block"
              ng-show="form.confirmPassword.$error.match && vm.submitted">
-            Passwords must match.
+           Hasla musza sie zgadzac.
           </p>
         </div>
 
         <div>
           <button class="btn btn-inverse btn-lg btn-register" type="submit">
-            Sign up
+            Rejestruj 
           </button>
           <a class="btn btn-default btn-lg btn-login" ui-sref="login">
-            Login
+            Loguj
           </a>
         </div>
 
