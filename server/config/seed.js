@@ -48,8 +48,8 @@ Patient.find({}).removeAsync()
   .then(function() {
     Patient.createAsync({
         childInfo : {
-            surname: 'Julian',
-            firstname:'Nowak',
+            surname: 'Nowak',
+            firstname:'Julian',
             dateOfBirth:{
                 day:1,
                 mounth:12,
@@ -61,8 +61,8 @@ Patient.find({}).removeAsync()
         }
     }, {
         childInfo : {
-            surname: 'Marek',
-            firstname:'Nowak',
+            surname: 'Nowak',
+            firstname:'Marek',
             dateOfBirth:{
                 day:1,
                 mounth:12,
@@ -74,8 +74,8 @@ Patient.find({}).removeAsync()
         }
     }, {
         childInfo : {
-            surname: 'Kasia',
-            firstname:'Perka',
+            surname: 'Perka',
+            firstname:'Katarzyna',
             dateOfBirth:{
                 day:1,
                 mounth:12,
@@ -87,8 +87,8 @@ Patient.find({}).removeAsync()
         }
     }, {
         childInfo : {
-            surname: 'Anna',
-            firstname:'Lukasik',
+            surname: 'Lukasik',
+            firstname:'Wiktoria',
             dateOfBirth:{
                 day:1,
                 mounth:12,
@@ -100,8 +100,8 @@ Patient.find({}).removeAsync()
         }
     }, {
         childInfo : {
-            surname: 'Robert',
-            firstname:'Sobota',
+            surname: 'Sobota',
+            firstname:'Robert',
             dateOfBirth:{
                 day:1,
                 mounth:12,
@@ -113,8 +113,8 @@ Patient.find({}).removeAsync()
         }
     }, {
         childInfo : {
-            surname: 'Wiktorai',
-            firstname:'Wojcik',
+            surname: 'Wojcik',
+            firstname:'Wojciech',
             dateOfBirth:{
                 day:1,
                 mounth:12,
