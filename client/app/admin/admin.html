@@ -34,7 +34,9 @@
       <h3>Lista pacjentow dodanych do systemu:</h3>
       <ul class="list-group">
         <li class="list-group-item" ng-repeat="patient in admin.patients">
-            <strong>{{patient.name}}</strong>
+          <strong>Imie:</strong>{{patient.childInfo.firstname}}<br>
+          <strong>Nazwisko:</strong>{{patient.childInfo.surname}}<br>
+          <strong>Pesel:</strong>{{patient.childInfo.pesel}}<br>
         </li>
       </ul>
     </div>
