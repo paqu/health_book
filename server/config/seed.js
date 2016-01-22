@@ -47,17 +47,83 @@ User.find({}).removeAsync()
 Patient.find({}).removeAsync()
   .then(function() {
     Patient.createAsync({
-      name: 'Test User 1',
+        childInfo : {
+            surname: 'Julian',
+            firstname:'Nowak',
+            dateOfBirth:{
+                day:1,
+                mounth:12,
+                year:1993
+            },
+            placeOfBirth:'Gniezno',
+            address:'os. xxx 45/3, 62-200 Gniezno',
+            pesel:111111111111
+        }
     }, {
-      name: 'Test User 2',
+        childInfo : {
+            surname: 'Marek',
+            firstname:'Nowak',
+            dateOfBirth:{
+                day:1,
+                mounth:12,
+                year:1993
+            },
+            placeOfBirth:'Gniezno',
+            address:'os. xxx 45/3, 62-200 Gniezno',
+            pesel:611111111111
+        }
     }, {
-      name: 'Test User 4',
+        childInfo : {
+            surname: 'Kasia',
+            firstname:'Perka',
+            dateOfBirth:{
+                day:1,
+                mounth:12,
+                year:1993
+            },
+            placeOfBirth:'Gniezno',
+            address:'os. xxx 45/3, 62-200 Gniezno',
+            pesel:511111111111
+        }
     }, {
-      name: 'Doctor 1',
+        childInfo : {
+            surname: 'Anna',
+            firstname:'Lukasik',
+            dateOfBirth:{
+                day:1,
+                mounth:12,
+                year:1993
+            },
+            placeOfBirth:'Gniezno',
+            address:'os. xxx 45/3, 62-200 Gniezno',
+            pesel:411111111111
+        }
     }, {
-      name: 'Doctor 2',
+        childInfo : {
+            surname: 'Robert',
+            firstname:'Sobota',
+            dateOfBirth:{
+                day:1,
+                mounth:12,
+                year:1993
+            },
+            placeOfBirth:'Gniezno',
+            address:'os. xxx 45/3, 62-200 Gniezno',
+            pesel:311111111111
+        }
     }, {
-      name: 'Doctor 2',
+        childInfo : {
+            surname: 'Wiktorai',
+            firstname:'Wojcik',
+            dateOfBirth:{
+                day:1,
+                mounth:12,
+                year:1993
+            },
+            placeOfBirth:'Gniezno',
+            address:'os. xxx 45/3, 62-200 Gniezno',
+            pesel:211111111111
+        }
     })
     .then(function() {
       console.log('finished populating users');
