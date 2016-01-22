@@ -5,6 +5,7 @@
   <ul class="nav nav-tabs">
     <li class="active"><a data-toggle="tab" href="#doctors">Lekarze</a></li>
    <li><a data-toggle="tab" href="#users">Uzytkownicy</a></li>
+   <li><a data-toggle="tab" href="#patients">Pacienci</a></li>
   </ul>
   <div class="tab-content">
     <div id="doctors" class="tab-pane fade in active">
@@ -26,6 +27,14 @@
             Rola:{{user.role}}<br>
             <span class="text-muted">{{user.email}}</span>
             <a ng-click="admin.delete(user)" class="trash"><span class="glyphicon glyphicon-trash pull-right"></span></a>
+        </li>
+      </ul>
+    </div>
+    <div id="patients" class="tab-pane fade">
+      <h3>Lista pacjentow dodanych do systemu:</h3>
+      <ul class="list-group">
+        <li class="list-group-item" ng-repeat="patient in admin.patients">
+            <strong>{{patient.name}}</strong>
         </li>
       </ul>
     </div>
