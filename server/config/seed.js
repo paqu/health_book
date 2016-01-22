@@ -5,6 +5,7 @@
 
 'use strict';
 import User from '../api/user/user.model';
+import Patient from '../api/pacient/pacient.model';
 
 
 User.find({}).removeAsync()
@@ -37,6 +38,24 @@ User.find({}).removeAsync()
       name: 'Doctor 2',
       email: 'doctor2@example.com',
       password: 'doctor'
+    })
+    .then(function() {
+      console.log('finished populating users');
+    });
+  });
+
+Patient.find({}).removeAsync()
+  .then(function() {
+    Patient.createAsync({
+      name: 'Test User 1',
+    }, {
+      name: 'Test User 2',
+    }, {
+      provider: 'local',
+    }, {
+      name: 'Doctor 1',
+    }, {
+      name: 'Doctor 2',
     })
     .then(function() {
       console.log('finished populating users');
