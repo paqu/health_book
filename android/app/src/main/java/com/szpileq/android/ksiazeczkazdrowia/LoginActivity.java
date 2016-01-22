@@ -20,7 +20,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-
 public class LoginActivity extends Activity {
     EditText email,password,res_email,code,newpass;
     Button login,cont,cont_code,cancel,cancel1,register,forpass;
@@ -53,7 +52,7 @@ public class LoginActivity extends Activity {
                 params.add(new BasicNameValuePair("password", passwordtxt));
                 ServerRequestPost sr = new ServerRequestPost();
 
-                JSONObject json = sr.getJSON("http://192.168.0.9:9000/auth/local",params);
+                JSONObject json = sr.getJSON("http://192.168.0.20:9000/auth/local",params);
                 if(json != null){
                     try{
                         String jsonstr = json.getString("message");
@@ -103,7 +102,7 @@ public class LoginActivity extends Activity {
                         params.add(new BasicNameValuePair("email", email_res_txt));
 
                         //  JSONObject json = sr.getJSON("http://192.168.56.1:8080/api/resetpass", params);
-                        JSONObject json = sr.getJSON("http://192.168.0.9:8080/api/resetpass", params);
+                        JSONObject json = sr.getJSON("http://192.168.0.20:8080/api/resetpass", params);
 
                         if (json != null) {
                             try {

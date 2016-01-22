@@ -10,6 +10,9 @@ import android.app.Activity;
         import android.widget.Button;
         import android.widget.EditText;
 import android.widget.TextView;
+
+
+
 import android.widget.Toast;
 
         import org.apache.http.NameValuePair;
@@ -43,7 +46,7 @@ public class ProfileActivity extends Activity {
 
         params = new ArrayList<NameValuePair>();
         ServerRequestGet getUserDataRequest = new ServerRequestGet();
-        JSONObject jsonUserData = getUserDataRequest.getJSON("http://192.168.0.9:9000/api/users/me",params, token);
+        JSONObject jsonUserData = getUserDataRequest.getJSON("http://192.168.0.20:9000/api/users/me",params, token);
         if(jsonUserData != null){
             try{
                 nametxt.setText("Witaj " + jsonUserData.getString("name") + "!");
@@ -55,7 +58,7 @@ public class ProfileActivity extends Activity {
         }
 
         ServerRequestGet getKidDataRequest = new ServerRequestGet();
-        JSONObject jsonKidData = getUserDataRequest.getJSON("http://192.168.0.9:9000/api/pacients",params, token);
+        JSONObject jsonKidData = getUserDataRequest.getJSON("http://192.168.0.20:9000/api/patients",params, token);
 
         logout = (Button)findViewById(R.id.logout);
         logout.setOnClickListener(new View.OnClickListener() {
