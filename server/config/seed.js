@@ -5,7 +5,7 @@
 
 'use strict';
 import User from '../api/user/user.model';
-import Patient from '../api/pacient/pacient.model';
+import Patient from '../api/patient/patient.model';
 
 
 User.find({}).removeAsync()
