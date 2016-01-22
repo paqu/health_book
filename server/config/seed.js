@@ -51,9 +51,11 @@ Patient.find({}).removeAsync()
     }, {
       name: 'Test User 2',
     }, {
-      provider: 'local',
+      name: 'Test User 4',
     }, {
       name: 'Doctor 1',
+    }, {
+      name: 'Doctor 2',
     }, {
       name: 'Doctor 2',
     })
