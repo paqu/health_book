@@ -1,5 +1,6 @@
 package com.szpileq.android.ksiazeczkazdrowia;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
@@ -10,7 +11,7 @@ import java.util.List;
 
 public class Patients {
 
-    private List<Patient> patient = new LinkedList<Patient>();
+    private List<Patient> patient = new ArrayList<Patient>();
 
     public List<Patient> getPatient(){
         return patient;

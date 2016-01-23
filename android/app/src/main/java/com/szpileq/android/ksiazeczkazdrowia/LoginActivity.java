@@ -52,7 +52,7 @@ public class LoginActivity extends Activity {
                 params.add(new BasicNameValuePair("password", passwordtxt));
                 ServerRequestPost sr = new ServerRequestPost();
 
-                JSONObject json = sr.getJSON("http://192.168.0.20:9000/auth/local",params);
+                JSONObject json = sr.getJSON("http://192.168.43.21:9000/auth/local",params);
                 if(json != null){
                     try{
                         String jsonstr = json.getString("message");

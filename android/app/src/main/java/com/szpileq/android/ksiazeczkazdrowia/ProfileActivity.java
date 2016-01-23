@@ -9,7 +9,9 @@ import android.view.View;
 import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.TextView;
+import android.gesture.*;
 
 import com.google.gson.Gson;
 
@@ -43,7 +45,7 @@ public class ProfileActivity extends Activity {
 
         params = new ArrayList<NameValuePair>();
         ServerRequestGet getUserDataRequest = new ServerRequestGet();
-        JSONObject jsonUserData = getUserDataRequest.getJSON("http://192.168.0.20:9000/api/users/me", params, token);
+        JSONObject jsonUserData = getUserDataRequest.getJSON("http://192.168.43.21:9000/api/users/me", params, token);
         if (jsonUserData != null) {
             try {
                 nametxt.setText("Witaj " + jsonUserData.getString("name") + "!");
@@ -56,20 +58,28 @@ public class ProfileActivity extends Activity {
         jsonUserData = null;
 
         ServerRequestGet getKidsDataRequest = new ServerRequestGet();
-        String jsonKidsData = getKidsDataRequest.getJSONArr("http://192.168.0.20:9000/api/patients", params, token);
-        String jsonOutput = jsonKidsData;
+        String jsonKidsData = getKidsDataRequest.getJSONArr("http://192.168.43.21:9000/api/patients", params, token);
 
         try {
             System.out.println(jsonKidsData);
-            JSONArray jsonArray = new JSONArray(jsonOutput);
-            System.out.println(jsonArray);
+            JSONArray jsonArray = new JSONArray(jsonKidsData);
 
-            Patients patientsList = new Patients();
+            ArrayList<Patient> patientsList= new ArrayList<Patient>();
 
             for (int i = 0; i < jsonArray.length(); i++) {
                 Patient patient = new Gson().fromJson(jsonArray.getJSONObject(i).toString(), Patient.class);
-                patientsList.getPatient().add(patient);
+                patientsList.add(patient);
+                patientsList.add(patient);
+                patientsList.add(patient);
+                patientsList.add(patient);
+                patientsList.add(patient);
             }
+
+            ListView listview = (ListView) findViewById(R.id.kidsListView);
+
+            PatientAdapter adbPatient;
+            adbPatient = new PatientAdapter(ProfileActivity.this, 0, patientsList);
+            listview.setAdapter(adbPatient);
         }catch (JSONException e) {
             e.printStackTrace();
         }
