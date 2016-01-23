@@ -1,39 +1,36 @@
 package com.szpileq.android.ksiazeczkazdrowia;
 
 import android.app.Activity;
-        import android.app.Dialog;
-        import android.content.Intent;
-        import android.content.SharedPreferences;
-        import android.os.Bundle;
-        import android.view.View;
-        import android.webkit.WebView;
-        import android.widget.Button;
-        import android.widget.EditText;
+import android.app.Dialog;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.os.Bundle;
+import android.view.View;
+import android.webkit.WebView;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
+import com.google.gson.Gson;
 
+import org.apache.http.NameValuePair;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
-import android.widget.Toast;
-
-        import org.apache.http.NameValuePair;
-        import org.apache.http.message.BasicNameValuePair;
-        import org.json.JSONException;
-        import org.json.JSONObject;
-
-        import java.util.ArrayList;
-        import java.util.List;
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class ProfileActivity extends Activity {
     TextView nametxt, pesel;
     SharedPreferences pref;
-    String token,grav,oldpasstxt,newpasstxt;
+    String token, grav, oldpasstxt, newpasstxt;
     WebView web;
-    Button chgpass,chgpassfr,cancel,logout;
+    Button chgpass, chgpassfr, cancel, logout;
     Dialog dlg;
-    EditText oldpass,newpass;
+    EditText oldpass, newpass;
     List<NameValuePair> params;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,25 +39,44 @@ public class ProfileActivity extends Activity {
 
         pref = getSharedPreferences("AppPref", MODE_PRIVATE);
         token = pref.getString("token", "");
-        nametxt = (TextView)findViewById(R.id.nameProfileText);
+        nametxt = (TextView) findViewById(R.id.nameProfileText);
 
         params = new ArrayList<NameValuePair>();
         ServerRequestGet getUserDataRequest = new ServerRequestGet();
-        JSONObject jsonUserData = getUserDataRequest.getJSON("http://192.168.0.20:9000/api/users/me",params, token);
-        if(jsonUserData != null){
-            try{
+        JSONObject jsonUserData = getUserDataRequest.getJSON("http://192.168.0.20:9000/api/users/me", params, token);
+        if (jsonUserData != null) {
+            try {
                 nametxt.setText("Witaj " + jsonUserData.getString("name") + "!");
 
 
-            }catch (JSONException e) {
+            } catch (JSONException e) {
                 e.printStackTrace();
             }
         }
+        jsonUserData = null;
 
-        ServerRequestGet getKidDataRequest = new ServerRequestGet();
-        JSONObject jsonKidData = getUserDataRequest.getJSON("http://192.168.0.20:9000/api/patients",params, token);
+        ServerRequestGet getKidsDataRequest = new ServerRequestGet();
+        String jsonKidsData = getKidsDataRequest.getJSONArr("http://192.168.0.20:9000/api/patients", params, token);
+        String jsonOutput = jsonKidsData;
 
-        logout = (Button)findViewById(R.id.logout);
+        try {
+            System.out.println(jsonKidsData);
+            JSONArray jsonArray = new JSONArray(jsonOutput);
+            System.out.println(jsonArray);
+
+            Patients patientsList = new Patients();
+
+            for (int i = 0; i < jsonArray.length(); i++) {
+                Patient patient = new Gson().fromJson(jsonArray.getJSONObject(i).toString(), Patient.class);
+                patientsList.getPatient().add(patient);
+            }
+        }catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+
+
+        logout = (Button) findViewById(R.id.logout);
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -79,8 +95,4 @@ public class ProfileActivity extends Activity {
         token = pref.getString("token", "");
 
     }
-
-
-
-
 }

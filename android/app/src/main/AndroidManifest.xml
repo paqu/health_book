@@ -17,7 +17,7 @@
 
         <activity
             android:name="com.szpileq.android.ksiazeczkazdrowia.LoginActivity"
-            android:label="@string/app_name" >
+            android:label="Login" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -25,8 +25,8 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".ProfileActivity"
-            android:label="Node Profile">
+        <activity android:name="com.szpileq.android.ksiazeczkazdrowia.ProfileActivity"
+            android:label="Profil">
 
         </activity>
     </application>
