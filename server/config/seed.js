@@ -52,7 +52,7 @@ Patient.find({}).removeAsync()
             firstname:'Julian',
             dateOfBirth:{
                 day:1,
-                mounth:12,
+                month:12,
                 year:1993
             },
             placeOfBirth:'Gniezno',
@@ -65,7 +65,7 @@ Patient.find({}).removeAsync()
             firstname:'Marek',
             dateOfBirth:{
                 day:1,
-                mounth:12,
+                month:12,
                 year:1993
             },
             placeOfBirth:'Gniezno',
@@ -78,7 +78,7 @@ Patient.find({}).removeAsync()
             firstname:'Katarzyna',
             dateOfBirth:{
                 day:1,
-                mounth:12,
+                month:12,
                 year:1993
             },
             placeOfBirth:'Gniezno',
@@ -91,7 +91,7 @@ Patient.find({}).removeAsync()
             firstname:'Wiktoria',
             dateOfBirth:{
                 day:1,
-                mounth:12,
+                month:12,
                 year:1993
             },
             placeOfBirth:'Gniezno',
@@ -104,7 +104,7 @@ Patient.find({}).removeAsync()
             firstname:'Robert',
             dateOfBirth:{
                 day:1,
-                mounth:12,
+                month:12,
                 year:1993
             },
             placeOfBirth:'Gniezno',
@@ -117,7 +117,7 @@ Patient.find({}).removeAsync()
             firstname:'Wojciech',
             dateOfBirth:{
                 day:1,
-                mounth:12,
+                month:12,
                 year:1993
             },
             placeOfBirth:'Gniezno',

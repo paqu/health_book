@@ -9,7 +9,7 @@ var PatientSchema = new Schema({
       firstname:String,
       dateOfBirth: {
           day:Number,
-          mounth:Number,
+          month:Number,
           year:Number,
       },
       placeOfBirth:String,
