@@ -18,7 +18,7 @@ function DoctorResource($resource) {
         },
         query:{
             method:'GET',
-            isArray:true
+            isArray:true,
             params: {
                 id:'doctors'
             }
