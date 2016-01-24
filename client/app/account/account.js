@@ -16,7 +16,7 @@ angular.module('ksiazeczkaZdrowiaApp')
         controller: function($state, Auth) {
           var referrer = $state.params.referrer ||
                           $state.current.referrer ||
-                          'main';
+                          'login';
           Auth.logout();
           $state.go(referrer);
         }
