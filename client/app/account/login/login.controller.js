@@ -25,9 +25,10 @@ class LoginController {
         console.log(user);
         if ('admin' == user.role)
             this.$state.go('admin');
+        else if ('user' == user.role)
+            this.$state.go('user');
         else
-            this.$state.go('main');
-
+            this.$state.go('doctor');
       })
       .catch(err => {
         this.errors.other = err.message;

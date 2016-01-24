@@ -18,7 +18,7 @@ angular.module('ksiazeczkaZdrowiaApp')
                           $state.current.referrer ||
                           'login';
           Auth.logout();
-          $state.go(referrer);
+          $state.go('login');
         }
       })
       .state('signup', {
