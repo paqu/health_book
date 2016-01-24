@@ -1,0 +1,16 @@
+Wymagania Funkcjonalne:
+	1. Możliwość logowania parą e-mail/hasło
+	2. Możliwość wylogowania się
+	3. Możliwość przejrzenia swoich danych
+	4. Możliwość przejrzenia wszystkich zarejestrowanych dzieci, wraz z ich imieniem, nazwiskiem i numerem PESEL
+
+UC 1. Przejrzenie wszystkich użytkowników:
+	1. Użytkownik chce zobaczyć wszystkich zarejestrowanych pacjentów
+	2. Użytkownik loguje się na konto admina
+	3. System pobiera z bazy danych dane użytkowników i wyświetla je na ekranie
+
+Wymagania Pozafunkcjonalne:
+	1. Autoryzacja użytkownika poprzez email i hasło
+	2. Autoryzacja każdego zapytania tokenem pobieranym z serwera
+	3. Integracja z serwerem django/nodejs/mongoDB/express
+	4. 1 Kliknięcie, by zobaczyć wszystkich użytkowników

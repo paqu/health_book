@@ -69,10 +69,7 @@ public class ProfileActivity extends Activity {
             for (int i = 0; i < jsonArray.length(); i++) {
                 Patient patient = new Gson().fromJson(jsonArray.getJSONObject(i).toString(), Patient.class);
                 patientsList.add(patient);
-                patientsList.add(patient);
-                patientsList.add(patient);
-                patientsList.add(patient);
-                patientsList.add(patient);
+
             }
 
             ListView listview = (ListView) findViewById(R.id.kidsListView);

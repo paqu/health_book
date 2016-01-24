@@ -27,11 +27,7 @@
 
     <GridLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="0.11"
-        android:layout_marginTop="10dp"
-        >
-
+        android:layout_height="34dp">
 
         <TextView
             android:layout_width="wrap_content"
@@ -39,10 +35,9 @@
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="Witaj  !"
             android:id="@+id/nameProfileText"
-            android:layout_row="1"
+            android:layout_row="0"
             android:layout_column="0"
             android:layout_gravity="center_horizontal|left|top" />
-
 
         <Button
             android:layout_width="100dp"
@@ -53,10 +48,11 @@
             android:textColor="#ffffff"
 
             android:text="Logout"
-            android:layout_row="1"
+            android:layout_row="0"
             android:layout_column="1"
             android:layout_gravity="top" />
     </GridLayout>
+
 
     <TextView
         android:layout_width="wrap_content"
@@ -73,13 +69,12 @@
         android:orientation="vertical" >
 
         <ListView
-            android:layout_width="fill_parent"
+    android:layout_width="fill_parent"
             android:layout_height="400dp"
             android:scrollbarSize="3dp"
             android:scrollbarStyle="outsideOverlay"
             android:scrollbars="vertical"
             android:scrollingCache="true"
-            android:smoothScrollbar="true"
             android:id="@+id/kidsListView" />
     </LinearLayout>
 </LinearLayout>
