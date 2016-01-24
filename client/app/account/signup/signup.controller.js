@@ -17,7 +17,8 @@ class SignupController {
 
     if (form.$valid) {
       this.Auth.createUser({
-        name: this.user.name,
+        firstname: this.user.firstname,
+        surnname: this.user.surname,
         email: this.user.email,
         password: this.user.password
       })
