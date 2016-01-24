@@ -5,7 +5,26 @@ angular.module('ksiazeczkaZdrowiaApp')
     $stateProvider
       .state('patients', {
         url: '/patients',
-        templateUrl: 'app/patients/patients.html',
+        templateUrl: 'app/patients/templates/patients-list.html',
         controller: 'PatientsCtrl'
+        //controllerAs:'patients'
+      })
+      .state('newPatient', {
+        url: '/patients/new',
+        templateUrl: 'app/patients/templates/patient-new.html',
+        controller: 'PatientNewCtrl',
+        //controllerAs:'patientsNew'
+      })
+      .state('viewPatient', {
+        url: '/patients/:id',
+        templateUrl: 'app/patients/templates/patient-view.html',
+        controller: 'PatientViewCtrl',
+        //controllerAs:'patientsView'
+      })
+      .state('editPatient', {
+        url: '/patients/:id/edit',
+        templateUrl: 'app/patients/templates/patient-edit.html',
+        controller: 'PatientEditCtrl',
+        //controllerAs:'patientsEidt'
       });
   });
