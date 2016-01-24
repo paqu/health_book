@@ -8,7 +8,8 @@ function localAuthenticate(User, email, password, done) {
     .then(function(user) {
       if (!user) {
         return done(null, false, {
-          message: 'This email is not registered.'
+          message: 'This email is not registered.',
+          isSuccess:false
         });
       }
       user.authenticate(password, function(authError, authenticated) {
@@ -17,7 +18,8 @@ function localAuthenticate(User, email, password, done) {
         }
         if (!authenticated) {
           return done(null, false, {
-            message: 'This password is not correct.'
+            message: 'This password is not correct.',
+            isSuccess:false
           });
         } else {
           return done(null, user);

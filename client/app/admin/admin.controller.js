@@ -4,13 +4,6 @@
 
 class AdminController {
 
-  menu = [
-      {
-          'title':'title1'
-      },
-      {
-          'title':'title2'
-      }];
 
   constructor(User) {
     // Use the User $resource to fetch all users
