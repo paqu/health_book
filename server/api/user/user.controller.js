@@ -127,6 +127,16 @@ exports.me = function(req, res, next) {
 };
 
 /**
+ * Get list of doctors
+ */
+exports.doctors = function(req, res) {
+  User.findAsync({'role':'doctor'}, '-salt -password')
+    .then(function(doctors) {
+      res.status(200).json(doctors);
+    })
+    .catch(handleError(res));
+};
+/**
  * Authentication callback
  */
 exports.authCallback = function(req, res, next) {
