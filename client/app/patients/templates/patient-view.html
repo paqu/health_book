@@ -9,7 +9,7 @@
         <p>{{patient.childInfo.surname}}</p>
         <p>{{patient.childInfo.pesel}}</p>
         <p>
-          <a ui-sref="patients" class="btn btn-default" role="button">Wroc do listy pacjentow</a>
+          <a ui-sref="patientsList" class="btn btn-default" role="button">Wroc do listy pacjentow</a>
           <a ui-sref="editPatient({id: patient._id})" class="btn btn-default" role="button">Edytuj</a>
           <a class="btn btn-danger" ng-click="deletePatient({id: patient._id})">Usun</a>
         </p>
@@ -17,5 +17,3 @@
     </div>
   </div>
 </div>
-
-<footer></footer>

@@ -3,7 +3,7 @@
 angular.module('ksiazeczkaZdrowiaApp')
   .config(function ($stateProvider) {
     $stateProvider
-      .state('patients', {
+      .state('patientsList', {
         url: '/patients',
         templateUrl: 'app/patients/templates/patients-list.html',
         controller: 'PatientsCtrl'

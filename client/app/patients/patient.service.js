@@ -4,11 +4,11 @@
     
 function PatientResource($resource) {
     return $resource('/api/patients/:id',{
-        id: null
+        id: '@_id' 
     },
     {
         update:{
-            method:'PUT'
+            method:'PUT',
         },
         get:{
             method:'GET'
