@@ -11,7 +11,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.gesture.*;
 
 import com.google.gson.Gson;
 
@@ -45,39 +44,46 @@ public class ProfileActivity extends Activity {
 
         params = new ArrayList<NameValuePair>();
         ServerRequestGet getUserDataRequest = new ServerRequestGet();
-        JSONObject jsonUserData = getUserDataRequest.getJSON("http://192.168.43.21:9000/api/users/me", params, token);
-        if (jsonUserData != null) {
-            try {
-                nametxt.setText("Witaj " + jsonUserData.getString("name") + "!");
-
-
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-        }
-        jsonUserData = null;
-
-        ServerRequestGet getKidsDataRequest = new ServerRequestGet();
-        String jsonKidsData = getKidsDataRequest.getJSONArr("http://192.168.43.21:9000/api/patients", params, token);
+        JSONObject jsonUserData = getUserDataRequest.getJSON("http://192.168.0.9:9000/api/users/me", params, token);
+        //System.out.println(jsonUserData);
 
         try {
-            System.out.println(jsonKidsData);
-            JSONArray jsonArray = new JSONArray(jsonKidsData);
+            //JSONObject jsonUserData = new JSONObject("{\"__v\":0,\"role\":\"user\",\"surname\":\"Test User 1\",\"provider\":\"local\",\"firstname\":\"Julian\",\"_id\":\"56a67d9c27b192640290ec6d\",\"email\":\"test1@example.com\"}");
+            //System.out.println(jsonUserData.toString());
+            if (jsonUserData != null) {
+                try{
+                    nametxt.setText("Witaj " + jsonUserData.getString("firstname") + "!");
 
-            ArrayList<Patient> patientsList= new ArrayList<Patient>();
 
-            for (int i = 0; i < jsonArray.length(); i++) {
-                Patient patient = new Gson().fromJson(jsonArray.getJSONObject(i).toString(), Patient.class);
-                patientsList.add(patient);
-
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
             }
 
-            ListView listview = (ListView) findViewById(R.id.kidsListView);
 
-            PatientAdapter adbPatient;
-            adbPatient = new PatientAdapter(ProfileActivity.this, 0, patientsList);
-            listview.setAdapter(adbPatient);
-        }catch (JSONException e) {
+            ServerRequestGet getKidsDataRequest = new ServerRequestGet();
+            String jsonKidsData = getKidsDataRequest.getJSONArr("http://192.168.0.9:9000/api/patients/mychildren/"+jsonUserData.getString("_id"), params, token);
+            //String jsonKidsData = new String("[{\"_id\":\"56a67d9c27b192640290ec72\",\"__v\":0,\"childInfo\":{\"surname\":\"Nowak\",\"firstname\":\"Julian\",\"placeOfBirth\":\"Gniezno\",\"address\":\"os. xxx 45/3, 62-200 Gniezno\",\"pesel\":111111111111,\"dateOfBirth\":{\"day\":1,\"month\":12,\"year\":1993}}},{\"_id\":\"56a67d9c27b192640290ec73\",\"__v\":0,\"childInfo\":{\"surname\":\"Nowak\",\"firstname\":\"Marek\",\"placeOfBirth\":\"Gniezno\",\"address\":\"os. xxx 45/3, 62-200 Gniezno\",\"pesel\":611111111111,\"dateOfBirth\":{\"day\":1,\"month\":12,\"year\":1993}}},{\"_id\":\"56a67d9c27b192640290ec74\",\"__v\":0,\"childInfo\":{\"surname\":\"Perka\",\"firstname\":\"Katarzyna\",\"placeOfBirth\":\"Gniezno\",\"address\":\"os. xxx 45/3, 62-200 Gniezno\",\"pesel\":511111111111,\"dateOfBirth\":{\"day\":1,\"month\":12,\"year\":1993}}},{\"_id\":\"56a67d9c27b192640290ec75\",\"__v\":0,\"childInfo\":{\"surname\":\"Lukasik\",\"firstname\":\"Wiktoria\",\"placeOfBirth\":\"Gniezno\",\"address\":\"os. xxx 45/3, 62-200 Gniezno\",\"pesel\":411111111111,\"dateOfBirth\":{\"day\":1,\"month\":12,\"year\":1993}}},{\"_id\":\"56a67d9c27b192640290ec76\",\"__v\":0,\"childInfo\":{\"surname\":\"Sobota\",\"firstname\":\"Robert\",\"placeOfBirth\":\"Gniezno\",\"address\":\"os. xxx 45/3, 62-200 Gniezno\",\"pesel\":311111111111,\"dateOfBirth\":{\"day\":1,\"month\":12,\"year\":1993}}},{\"_id\":\"56a67d9c27b192640290ec77\",\"__v\":0,\"childInfo\":{\"surname\":\"Wojcik\",\"firstname\":\"Wojciech\",\"placeOfBirth\":\"Gniezno\",\"address\":\"os. xxx 45/3, 62-200 Gniezno\",\"pesel\":211111111111,\"dateOfBirth\":{\"day\":1,\"month\":12,\"year\":1993}}}]");
+            try {
+                System.out.println(jsonKidsData);
+                JSONArray jsonArray = new JSONArray(jsonKidsData);
+                // deserialize list of patients into list of PatientBasic objects
+                ArrayList<PatientBasic> patientsList= new ArrayList<PatientBasic>();
+                for (int i = 0; i < jsonArray.length(); i++) {
+                    PatientBasic patientBasic = new Gson().fromJson(jsonArray.getJSONObject(i).toString(), PatientBasic.class);
+                    patientsList.add(patientBasic);
+                }
+
+                ListView listviewPatientsList = (ListView) findViewById(R.id.kidsListView);
+
+                PatientAdapter adbPatient;
+                adbPatient = new PatientAdapter(ProfileActivity.this, 0, patientsList);
+                listviewPatientsList.setAdapter(adbPatient);
+
+            }catch (JSONException e) {
+                e.printStackTrace();
+            }
+        } catch (JSONException e) {
             e.printStackTrace();
         }
 

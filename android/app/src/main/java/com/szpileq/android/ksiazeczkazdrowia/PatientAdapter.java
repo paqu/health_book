@@ -5,8 +5,8 @@ package com.szpileq.android.ksiazeczkazdrowia;
  */
 
 import android.app.Activity;
-import android.app.Dialog;
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,17 +16,17 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-public class PatientAdapter extends ArrayAdapter<Patient> {
+public class PatientAdapter extends ArrayAdapter<PatientBasic> {
 
     private Activity activity;
-    private ArrayList<Patient> lPatients;
+    private ArrayList<PatientBasic> lPatientBasics;
     private static LayoutInflater inflater = null;
 
-    public PatientAdapter (Activity activity, int textViewResourceId,ArrayList<Patient> _lPatients) {
+    public PatientAdapter (Activity activity, int textViewResourceId,ArrayList<PatientBasic> _lPatientBasics) {
         super(activity, textViewResourceId);
         try {
             this.activity = activity;
-            this.lPatients = _lPatients;
+            this.lPatientBasics = _lPatientBasics;
 
             inflater = (LayoutInflater) activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
@@ -36,7 +36,7 @@ public class PatientAdapter extends ArrayAdapter<Patient> {
     }
 
     public int getCount() {
-        return lPatients.size();
+        return lPatientBasics.size();
     }
 
     public Activity getActivity(){
@@ -51,7 +51,7 @@ public class PatientAdapter extends ArrayAdapter<Patient> {
         public TextView display_firstname;
         public TextView display_surname;
         public TextView display_pesel;
-  //      public Button   more_button;
+        public Button   more_button;
 
     }
 
@@ -66,25 +66,32 @@ public class PatientAdapter extends ArrayAdapter<Patient> {
                 holder.display_firstname = (TextView) vi.findViewById(R.id.displayFirstname);
                 holder.display_surname = (TextView) vi.findViewById(R.id.displaySurname);
                 holder.display_pesel = (TextView) vi.findViewById(R.id.displayPesel);
-               // holder.more_button = (Button) vi.findViewById(R.id.moreButton);
+                holder.more_button = (Button) vi.findViewById(R.id.moreButton);
 
                 vi.setTag(holder);
             } else {
                 holder = (ViewHolder) vi.getTag();
             }
 
-            final Dialog dlgMore;
 
-            holder.display_firstname.setText(lPatients.get(position).getChildInfo().getFirstname());
-            holder.display_surname.setText(lPatients.get(position).getChildInfo().getSurname());
-            holder.display_pesel.setText(lPatients.get(position).getChildInfo().getPesel());
-            /*holder.more_button.setOnClickListener(new View.OnClickListener() {
+            holder.display_firstname.setText(lPatientBasics.get(position).getChildInfo().getFirstname());
+            holder.display_surname.setText(lPatientBasics.get(position).getChildInfo().getSurname());
+            holder.display_pesel.setText(lPatientBasics.get(position).getChildInfo().getPesel());
+            holder.more_button.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    dlgMore =  new Dialog(ProfileActivity.this);
+                    /*Dialog dlgMore;
+                    dlgMore =  new Dialog(getActivity());
+                    dlgMore.setContentView(R.layout.childinfo_dlg);
+                    dlgMore.setTitle("Informacje o dziecku");
+                    TextView napis = (TextView) dlgMore.findViewById(R.id.textView3);
+                    napis.setText("yolo");
+                    */
+                    Intent i = new Intent(activity, ChildActivity.class);
+                    activity.startActivity(i);
                 }
             });
-*/
+
 
         } catch (Exception e) {
 

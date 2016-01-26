@@ -1,7 +1,7 @@
 package com.szpileq.android.ksiazeczkazdrowia;
 
 
-public class Patient {
+public class PatientBasic {
 
     private childInfo childInfo;
     private int __v;
