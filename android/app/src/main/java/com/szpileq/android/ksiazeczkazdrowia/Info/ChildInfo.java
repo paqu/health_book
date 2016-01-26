@@ -1,6 +1,4 @@
-package com.szpileq.android.ksiazeczkazdrowia;
-
-import java.util.Date;
+package com.szpileq.android.ksiazeczkazdrowia.Info;
 
 /**
  * Created by Szpileq on 2016-01-23.

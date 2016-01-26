@@ -1,4 +1,4 @@
-package com.szpileq.android.ksiazeczkazdrowia;
+package com.szpileq.android.ksiazeczkazdrowia.ServerRequests;
 
 import java.io.BufferedReader;
 import java.io.IOException;

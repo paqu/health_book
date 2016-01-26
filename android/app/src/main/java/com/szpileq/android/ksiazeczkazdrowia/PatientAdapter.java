@@ -15,6 +15,8 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.szpileq.android.ksiazeczkazdrowia.Activities.ChildActivity;
+
 import java.util.ArrayList;
 
 public class PatientAdapter extends ArrayAdapter<PatientBasic> {

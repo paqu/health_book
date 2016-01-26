@@ -1,4 +1,4 @@
-package com.szpileq.android.ksiazeczkazdrowia;
+package com.szpileq.android.ksiazeczkazdrowia.Info;
 
 /**
  * Created by Szpileq on 2016-01-23.

@@ -1,4 +1,4 @@
-package com.szpileq.android.ksiazeczkazdrowia;
+package com.szpileq.android.ksiazeczkazdrowia.Activities;
 
 import android.app.Activity;
 import android.app.Dialog;
@@ -13,6 +13,10 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.google.gson.Gson;
+import com.szpileq.android.ksiazeczkazdrowia.PatientAdapter;
+import com.szpileq.android.ksiazeczkazdrowia.PatientBasic;
+import com.szpileq.android.ksiazeczkazdrowia.R;
+import com.szpileq.android.ksiazeczkazdrowia.ServerRequests.ServerRequestGet;
 
 import org.apache.http.NameValuePair;
 import org.json.JSONArray;

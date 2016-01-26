@@ -1,4 +1,4 @@
-package com.szpileq.android.ksiazeczkazdrowia;
+package com.szpileq.android.ksiazeczkazdrowia.Info;
 
 public class FamilyInfo {
     private String motherName;

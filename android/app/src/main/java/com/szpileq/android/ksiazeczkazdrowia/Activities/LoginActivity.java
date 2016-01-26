@@ -1,15 +1,17 @@
-package com.szpileq.android.ksiazeczkazdrowia;
+package com.szpileq.android.ksiazeczkazdrowia.Activities;
 
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.szpileq.android.ksiazeczkazdrowia.R;
+import com.szpileq.android.ksiazeczkazdrowia.ServerRequests.ServerRequestPost;
 
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;

@@ -1,6 +1,8 @@
 package com.szpileq.android.ksiazeczkazdrowia;
 
 
+import com.szpileq.android.ksiazeczkazdrowia.Info.ChildInfo;
+
 public class PatientBasic {
 
     private ChildInfo childInfo;
