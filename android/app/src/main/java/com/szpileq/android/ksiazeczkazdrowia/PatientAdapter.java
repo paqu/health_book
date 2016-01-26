@@ -7,6 +7,7 @@ package com.szpileq.android.ksiazeczkazdrowia;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -55,7 +56,7 @@ public class PatientAdapter extends ArrayAdapter<PatientBasic> {
 
     }
 
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, View convertView, ViewGroup parent) {
         View vi = convertView;
         final ViewHolder holder;
         try {
@@ -80,14 +81,13 @@ public class PatientAdapter extends ArrayAdapter<PatientBasic> {
             holder.more_button.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    /*Dialog dlgMore;
-                    dlgMore =  new Dialog(getActivity());
-                    dlgMore.setContentView(R.layout.childinfo_dlg);
-                    dlgMore.setTitle("Informacje o dziecku");
-                    TextView napis = (TextView) dlgMore.findViewById(R.id.textView3);
-                    napis.setText("yolo");
-                    */
+
+                    Bundle bundle = new Bundle();
+                    bundle.putString("childID", lPatientBasics.get(position).get_id());
+
                     Intent i = new Intent(activity, ChildActivity.class);
+                    i.putExtras(bundle);
+
                     activity.startActivity(i);
                 }
             });

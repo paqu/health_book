@@ -5,7 +5,7 @@ import java.util.Date;
 /**
  * Created by Szpileq on 2016-01-23.
  */
-public class childInfo {
+public class ChildInfo {
 
     private String surname;
     private String firstname;

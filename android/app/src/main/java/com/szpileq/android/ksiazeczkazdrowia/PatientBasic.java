@@ -3,7 +3,7 @@ package com.szpileq.android.ksiazeczkazdrowia;
 
 public class PatientBasic {
 
-    private childInfo childInfo;
+    private ChildInfo childInfo;
     private int __v;
     private String _id;
 
@@ -23,7 +23,7 @@ public class PatientBasic {
         this._id = _id;
     }
 
-    public childInfo getChildInfo() {
+    public ChildInfo getChildInfo() {
         return childInfo;
     }
 }
