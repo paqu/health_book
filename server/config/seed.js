@@ -51,6 +51,7 @@ User.find({}).removeAsync()
 Patient.find({}).removeAsync()
   .then(function() {
     Patient.createAsync({
+        parentId:'56a79f343c5600bb0dee4474',
         childInfo : {
             surname: 'Nowak',
             firstname:'Julian',
@@ -64,6 +65,7 @@ Patient.find({}).removeAsync()
             pesel:111111111111
         }
     }, {
+        parentId:'56a79f343c5600bb0dee4474',
         childInfo : {
             surname: 'Nowak',
             firstname:'Marek',
@@ -77,6 +79,7 @@ Patient.find({}).removeAsync()
             pesel:611111111111
         }
     }, {
+        parentId:'56a79f343c5600bb0dee4474',
         childInfo : {
             surname: 'Perka',
             firstname:'Katarzyna',
@@ -90,6 +93,7 @@ Patient.find({}).removeAsync()
             pesel:511111111111
         }
     }, {
+        parentId:'56a7b020ffa37c0c112f322c',
         childInfo : {
             surname: 'Lukasik',
             firstname:'Wiktoria',
@@ -103,6 +107,7 @@ Patient.find({}).removeAsync()
             pesel:411111111111
         }
     }, {
+        parentId:'56a7b020ffa37c0c112f322c',
         childInfo : {
             surname: 'Sobota',
             firstname:'Robert',
@@ -116,6 +121,7 @@ Patient.find({}).removeAsync()
             pesel:311111111111
         }
     }, {
+        parentId:'56a7b020ffa37c0c112f322c',
         childInfo : {
             surname: 'Wojcik',
             firstname:'Wojciech',
