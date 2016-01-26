@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.google.gson.Gson;
+
 import org.apache.http.NameValuePair;
 import org.json.JSONObject;
 
@@ -23,9 +25,11 @@ public class ChildActivity extends AppCompatActivity {
         SharedPreferences pref = getSharedPreferences("AppPref", MODE_PRIVATE);
         String token = pref.getString("token", "");
 
-        //ArrayList params = new ArrayList<NameValuePair>();
-        //ServerRequestGet getUserDataRequest = new ServerRequestGet();
-        //JSONObject jsonKidData = getUserDataRequest.getJSON("http://192.168.0.9:9000/api/patients/"+childID, params, token);
+        ArrayList params = new ArrayList<NameValuePair>();
+        ServerRequestGet getChildDataRequest = new ServerRequestGet();
+        JSONObject jsonKidData = getChildDataRequest.getJSON("http://192.168.0.9:9000/api/patients/"+childID, params, token);
+
+        Patient kid = new Gson().fromJson(jsonKidData.toString(), Patient.class);
 
 
         Button button = (Button) findViewById(R.id.button2);
