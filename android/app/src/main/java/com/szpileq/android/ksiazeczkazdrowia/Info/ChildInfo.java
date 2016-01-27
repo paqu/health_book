@@ -1,8 +1,6 @@
 package com.szpileq.android.ksiazeczkazdrowia.Info;
 
-/**
- * Created by Szpileq on 2016-01-23.
- */
+
 public class ChildInfo {
 
     private String surname;
@@ -10,9 +8,9 @@ public class ChildInfo {
     private String placeOfBirth;
     private String address;
     private String pesel;
-    private DateOfBirth dateOfBirth;
+    private String dateOfBirth;
 
-    public DateOfBirth getDateOfBirth() {
+    public String getDateOfBirth() {
         return dateOfBirth;
     }
 
@@ -36,7 +34,7 @@ public class ChildInfo {
         return address;
     }
 
-    public void DateOfBirth(DateOfBirth dateOfBirth) {
+    public void setDateOfBirth (String dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
 
