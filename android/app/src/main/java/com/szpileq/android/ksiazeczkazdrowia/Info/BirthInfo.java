@@ -5,7 +5,7 @@ import java.util.ArrayList;
 /**
  * Created by Szpileq on 2016-01-27.
  */
-public class StateAfterChildInfo {
+public class BirthInfo {
     private Number bodyWeight;
     private Number bodyLength;
     private Number headCircuit;

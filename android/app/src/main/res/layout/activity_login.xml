@@ -1,16 +1,17 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:gravity="center_horizontal"
-    android:orientation="vertical" android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".Activities.LoginActivity">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:paddingTop="15dp"
+    tools:context=".Activities.ProfileActivity"
+    android:weightSum="1">
 
     <ImageView
         android:id="@+id/imageView1"
         android:layout_width="fill_parent"
-        android:layout_height="50pt"
+        android:layout_height="110dp"
         android:background="#4e4e4e"
         android:layout_gravity="center"
         android:src="@drawable/logo" />
@@ -18,16 +19,24 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="15dp"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Health Book"
+        android:text="Książeczka Zdrowia Dziecka"
         android:id="@+id/textAppTitle" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Zaloguj się"
+        android:id="@+id/loginTitleText" />
 
     <EditText
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:layout_gravity="center"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="15dp"
         android:id="@+id/email"
         android:hint="example@gmail.com"
         android:inputType="textEmailAddress" />
@@ -49,17 +58,7 @@
         android:background="#4e4e4e"
         android:textColor="#ffffff"
         android:textAlignment="center"
-        android:text="Login"/>
-
-    <Button
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:id="@+id/forgotpass"
-        android:layout_marginTop="10dp"
-        android:background="#832929"
-        android:textColor="#ffffff"
-        android:textAlignment="center"
-        android:text="Forgot Password"/>
+        android:text="Zaloguj"/>
 
 
 </LinearLayout>

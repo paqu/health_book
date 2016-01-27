@@ -2,7 +2,7 @@ package com.szpileq.android.ksiazeczkazdrowia;
 
 import com.szpileq.android.ksiazeczkazdrowia.Info.FamilyInfo;
 import com.szpileq.android.ksiazeczkazdrowia.Info.PrenatalInfo;
-import com.szpileq.android.ksiazeczkazdrowia.Info.StateAfterChildInfo;
+import com.szpileq.android.ksiazeczkazdrowia.Info.BirthInfo;
 import com.szpileq.android.ksiazeczkazdrowia.Info.VisitInfo;
 
 import java.util.ArrayList;
@@ -11,7 +11,7 @@ public class Patient extends PatientBasic {
 
     private FamilyInfo familyInfo;
     private PrenatalInfo prenatalInfo;
-    private StateAfterChildInfo stateAfterChildInfo;
+    private BirthInfo birthInfo;
     private ArrayList<VisitInfo> visitsInfo;
 
     public ArrayList<VisitInfo> getVisitsInfo() {
@@ -22,12 +22,12 @@ public class Patient extends PatientBasic {
         this.visitsInfo = visitsInfo;
     }
 
-    public StateAfterChildInfo getStateAfterChildInfo() {
-        return stateAfterChildInfo;
+    public BirthInfo getBirthInfo() {
+        return birthInfo;
     }
 
-    public void setStateAfterChildInfo(StateAfterChildInfo stateAfterChildInfo) {
-        this.stateAfterChildInfo = stateAfterChildInfo;
+    public void setBirthInfo(BirthInfo birthInfo) {
+        this.birthInfo = birthInfo;
     }
 
     public PrenatalInfo getPrenatalInfo() {

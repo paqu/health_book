@@ -34,7 +34,7 @@ public class ChildActivity extends AppCompatActivity {
 
         Patient kid = new Gson().fromJson(jsonKidData.toString(), Patient.class);
 
-        System.out.println(kid.getVisitsInfo().get(1).getKindOfVisit());
+        System.out.println(kid.getBirthInfo().getBodyLength());
 
 
         Button button = (Button) findViewById(R.id.button2);

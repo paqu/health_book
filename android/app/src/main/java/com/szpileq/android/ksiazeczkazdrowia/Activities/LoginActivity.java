@@ -40,7 +40,6 @@ public class LoginActivity extends Activity {
         email = (EditText)findViewById(R.id.email);
         password = (EditText)findViewById(R.id.password);
         login = (Button)findViewById(R.id.loginbtn);
-        forpass = (Button)findViewById(R.id.forgotpass);
 
         pref = getSharedPreferences("AppPref", MODE_PRIVATE);
 

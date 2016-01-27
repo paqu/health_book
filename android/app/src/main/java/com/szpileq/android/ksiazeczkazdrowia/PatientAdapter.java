@@ -66,9 +66,9 @@ public class PatientAdapter extends ArrayAdapter<PatientBasic> {
                 vi = inflater.inflate(R.layout.listview_association, null);
                 holder = new ViewHolder();
 
-                holder.display_firstname = (TextView) vi.findViewById(R.id.displayFirstname);
-                holder.display_surname = (TextView) vi.findViewById(R.id.displaySurname);
-                holder.display_pesel = (TextView) vi.findViewById(R.id.displayPesel);
+                holder.display_firstname = (TextView) vi.findViewById(R.id.childNameText);
+                holder.display_surname = (TextView) vi.findViewById(R.id.childSurnameText);
+                holder.display_pesel = (TextView) vi.findViewById(R.id.childPeselText);
                 holder.more_button = (Button) vi.findViewById(R.id.moreButton);
 
                 vi.setTag(holder);
