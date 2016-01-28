@@ -1,20 +1,90 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".Activities.ChildActivity">
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:paddingTop="15dp"
+    tools:context=".Activities.ChildActivity"
+    android:weightSum="1">
 
-    <Button
-        style="?android:attr/buttonStyleSmall"
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="fill_parent"
+        android:layout_height="110dp"
+        android:background="#4e4e4e"
+        android:layout_gravity="center"
+        android:src="@drawable/logo" />
+
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="back"
-        android:id="@+id/button2"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
-</RelativeLayout>
+        android:layout_marginTop="15dp"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Imię Nazwisko"
+        android:id="@+id/childNameSurnameText" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="15dp"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Kategorie:"
+        android:id="@+id/childCategoriesText"
+        android:layout_gravity="left" />
+
+
+    <TextView
+        android:id="@+id/help_title_gest"
+        android:text="Podstawowe informacje o dziecku"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:clickable="true"
+        android:onClick="toggle_contents"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_gravity="left"/>
+
+    <!--content to hide/show -->
+    <RelativeLayout
+        android:id="@+id/txt_help_gest"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#efefef"
+        android:layout_marginLeft="15dp" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Imię:"
+            android:id="@+id/childProfileNameLabel" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/childProfileNameLabel"
+            android:layout_marginLeft="150dp"
+            android:text="Name"
+            android:id="@+id/childProfileNameText" />
+
+        <!-- Surname -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nazwisko:"
+            android:layout_below="@id/childProfileNameLabel"
+            android:id="@+id/childProfileSurnameLabel" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/childProfileNameLabel"
+            android:layout_below="@id/childProfileNameText"
+            android:layout_marginLeft="150dp"
+            android:text="Name"
+            android:id="@+id/childProfileSurnameText" />
+
+    </RelativeLayout>
+
+</LinearLayout>
