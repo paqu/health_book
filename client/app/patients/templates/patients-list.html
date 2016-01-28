@@ -8,15 +8,23 @@
   </ul>
   <br>
   <div class="col-sm-6 col-md-4" ng-show="pacients.length < 1"> Brak pacjentow w systemie.</div>
-  <ul class="list-group">
-    <li class="list-group-item" ng-repeat="patient in patients">
-      <strong>Id:</strong>{{patient._id}}<br>
-      <strong>Imie:</strong>{{patient.childInfo.firstname}}<br>
-      <strong>Nazwisko:</strong>{{patient.childInfo.surname}}<br>
-      <strong>Pesel:</strong>{{patient.childInfo.pesel}}<br>
-      <a ui-sref="viewPatient({id:patient._id})" class="btn btn-default" role="button"> Pokaz ksiazeczke pacjenta</a>
-    </li>
-  </ul>
+  <table class="table">
+    <thead>
+      <th class="text-center">Imie</th>
+      <th class="text-center">Nazwisko</th>
+      <th class="text-center">PESEL</th>
+      <th></th>
+    </thead>
+    <tbody>
+      <tr ng-repeat="patient in patients">
+        <td class="text-center">{{patient.childInfo.firstname}}</td>
+        <td class="text-center">{{patient.childInfo.surname}}</td>
+        <td class="text-center">{{patient.childInfo.pesel}}</td>
+        <td class="text-right"><a class="btn btn-info" ui-sref="viewPatient({id:patient._id})" class="btn btn-default" role="button"> Pokaz ksiazeczke pacjenta</a></td>
+        <td class="text-center"><a class="btn btn-danger" ng-click="deletePatient({id: patient._id})">Usun</a></td>
+      </tr>
+    </tbody>
+  </table>
 </div>
 
 <!--

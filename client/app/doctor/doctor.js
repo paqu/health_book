@@ -8,7 +8,7 @@ angular.module('ksiazeczkaZdrowiaApp')
         templateUrl: 'app/doctor/doctor.html',
         controller: 'DoctorCtrl'
       })
-      .state('listDoctor', {
+      .state('doctorsList', {
         url: '/doctors',
         templateUrl: 'app/doctor/templates/doctors-list.html',
         controller: 'DoctorCtrl'

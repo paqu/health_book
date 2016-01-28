@@ -20,7 +20,7 @@ angular.module('ksiazeczkaZdrowiaApp')
         $state.go('patientsList');
     }
   })
-  .controller('PatientEditCtrl',function ($scope,$http, $state,$stateParams, Patient) {
+  .controller('PatientEditCtrl',function ($scope,$state,$stateParams, Patient) {
     $scope.patient = Patient.get({id: $stateParams.id});
 
     $scope.editPatient = function (){
