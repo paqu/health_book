@@ -5,14 +5,11 @@ angular.module('ksiazeczkaZdrowiaApp')
     $scope.patients = Patient.query();
   })
   .controller('PatientViewCtrl',function ($scope, $state, $stateParams, Patient) {
-      console.log("XXXXXXXXXXXXXXXXXXXX");
-      console.log($stateParams.id);
-      console.log("XXXXXXXXXXXXXXXXXXXX");
     $scope.patient = Patient.get({id: $stateParams.id});
 
     $scope.deletePatient = function (){
         Patient.remove({id: $stateParams.id});
-        $state.go('patients');
+        $state.go('patientsList');
     }
   })
   .controller('PatientNewCtrl',function ($scope, $state, Patient) {
@@ -20,15 +17,15 @@ angular.module('ksiazeczkaZdrowiaApp')
 
     $scope.addPatient = function (){
         Patient.create($scope.patient);
-        $state.go('patients');
+        $state.go('patientsList');
     }
   })
-  .controller('PatientEditCtrl',function ($scope, $state,$stateParams, Patient) {
+  .controller('PatientEditCtrl',function ($scope,$state,$stateParams, Patient) {
     $scope.patient = Patient.get({id: $stateParams.id});
 
     $scope.editPatient = function (){
-        Patient.update($scope.patient);
-        $state.go('patients');
+        Patient.update({id: $stateParams.id},$scope.patient);
+        $state.go('patientsList');
     }
   })
 ;
