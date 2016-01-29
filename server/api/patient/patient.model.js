@@ -8,14 +8,39 @@ var PatientSchema = new Schema({
     childInfo:{
       surname: String,
       firstname:String,
-      dateOfBirth: {
-          day:Number,
-          month:Number,
-          year:Number,
-      },
+      dateOfBirth:String,
       placeOfBirth:String,
       address:String,
       pesel:Number,
+    },
+    familyInfo:{
+        motherName:String,
+        fatherName:String,
+        contactPhone:String
+    },
+    prenatalInfo:{
+        motherAge:Number,
+        bloodGroup:String,
+        motherRhFactor:String,
+        isImmuAntyRhDApplied:Boolean,
+        isPreventionDuringPregnancy:Boolean,
+        isPreventionAfterChildBirth:Boolean,
+        pregnancyNumber:Number,
+        isSingle:Boolean,
+        isMultiFetal:Boolean,
+        caregiver:String,
+        date:String
+    },
+    visitsInfo:[{
+        date:String,
+        kindOfVisit:String,
+        doctorSignature:String
+    }],
+   birthInfo:{
+        bodyWeight:Number,
+        bodyLength:Number,
+        headCircuit:Number,
+        chestCircuit:Number
     }
 });
 
