@@ -66,6 +66,15 @@ exports.index = function(req, res) {
     .catch(handleError(res));
 };
 
+// Gets a list of Patients asigned to User
+exports.mychildren = function(req, res) {
+  Patient.findAsync({'parentId':req.params.id},
+          'childInfo.surname childInfo.firstname childInfo.pesel'
+          )
+    .then(responseWithResult(res))
+    .catch(handleError(res));
+};
+
 // Gets a single Patient from the DB
 exports.show = function(req, res) {
   Patient.findByIdAsync(req.params.id)
