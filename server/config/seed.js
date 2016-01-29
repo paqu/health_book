@@ -11,24 +11,28 @@ import Patient from '../api/patient/patient.model';
 User.find({}).removeAsync()
   .then(function() {
     User.createAsync({
+      _id:'a1b2c3d4e5f6a1b2c3d4e5f6',
       provider: 'local',
       firstname:'Julian',
       surname: 'Test User 1',
       email: 'test1@example.com',
       password: 'test'
     }, {
+      _id:'b1b2c3d4e5f6a1b2c3d4e5f6',
       provider: 'local',
       firstname:'Julian',
       surname: 'Test User 2',
       email: 'test2@example.com',
       password: 'test'
     }, {
+      _id:'c1b2c3d4e5f6a1b2c3d4e5f6',
       provider: 'local',
       role: 'admin',
       surname: 'Admin',
       email: 'admin@example.com',
       password: 'admin'
     }, {
+      _id:'d1b2c3d4e5f6a1b2c3d4e5f6',
       provider: 'local',
       role: 'doctor',
       firstname:'Julian',
@@ -36,6 +40,7 @@ User.find({}).removeAsync()
       email: 'doctor1@example.com',
       password: 'doctor'
     }, {
+      _id:'e1b2c3d4e5f6a1b2c3d4e5f6',
       provider: 'local',
       role: 'doctor',
       firstname:'Julian',
@@ -51,91 +56,462 @@ User.find({}).removeAsync()
 Patient.find({}).removeAsync()
   .then(function() {
     Patient.createAsync({
-        parentId:'56a79f343c5600bb0dee4474',
+        _id:'aaaaaaaaaaaaaaaaaaaaaaaa',
+        parentId:'a1b2c3d4e5f6a1b2c3d4e5f6',
         childInfo : {
             surname: 'Nowak',
             firstname:'Julian',
-            dateOfBirth:{
-                day:1,
-                month:12,
-                year:1993
-            },
+            dateOfBirth:'1993/10/20',
             placeOfBirth:'Gniezno',
             address:'os. xxx 45/3, 62-200 Gniezno',
             pesel:111111111111
+        },
+        familyInfo:{
+            motherName:'Maria',
+            fatherName:'Janusz',
+            contactPhone:'xxx-xxx-xxx'
+        },
+        prenatalInfo:{
+            motherAge:27,
+            bloodGroup:'B',
+            motherRhFactor:'X',
+            isImmuAntyRhDApplied:true,
+            isPreventionDurringPregnacy:true,
+            isPreventionAfterChildBirth:true,
+            pregnancyNumber:3,
+            isSingle:true,
+            isMultiFetal:false,
+            caregiver:'Piotr Szpilkowski',
+            date:'27/01/2017'
+        },
+        visitsInfo:[{
+            date:"2013/01/21",
+            kindOfVisit:"XXXX",
+            doctorSignature:"Szpilman"
+        },{
+            date:"2013/04/21",
+            kindOfVisit:"XXXX",
+            doctorSignature:"Szpilman"
+        },{
+            date:"2013/05/21",
+            kindOfVisit:"YYYY",
+            doctorSignature:"Szpilman"
+        },{
+            date:"2014/01/21",
+            kindOfVisit:"ZZZ",
+            doctorSignature:"Szpilman"
+        }],
+        birthInfo:{
+            bodyWeight:2000,
+            bodyLength:40,
+            headCircuit:30,
+            chestCircuit:45
         }
     }, {
-        parentId:'56a79f343c5600bb0dee4474',
+        _id:'aaaaaaaaaaaaaaaaaaaaaaa1',
+        parentId:'a1b2c3d4e5f6a1b2c3d4e5f6',
         childInfo : {
             surname: 'Nowak',
             firstname:'Marek',
-            dateOfBirth:{
-                day:1,
-                month:12,
-                year:1993
-            },
+            dateOfBirth:'1993/10/20',
             placeOfBirth:'Gniezno',
             address:'os. xxx 45/3, 62-200 Gniezno',
             pesel:611111111111
+        },
+        familyInfo:{
+            motherName:'Maria',
+            fatherName:'Janusz',
+            contactPhone:'xxx-xxx-xxx'
+        },
+        prenatalInfo:{
+            motherAge:27,
+            bloodGroup:'B',
+            motherRhFactor:'X',
+            isImmuAntyRhDApplied:true,
+            isPreventionDurringPregnacy:true,
+            isPreventionAfterChildBirth:true,
+            pregnancyNumber:3,
+            isSingle:true,
+            isMultiFetal:false,
+            caregiver:'Piotr Szpilkowski',
+            date:'27/01/2017'
+        },
+        visitsInfo:[{
+            date:"2013/01/21",
+            kindOfVisit:"XXXX",
+            doctorSignature:"Szpilman"
+        },{
+            date:"2013/04/21",
+            kindOfVisit:"XXXX",
+            doctorSignature:"Szpilman"
+        },{
+            date:"2013/05/21",
+            kindOfVisit:"YYYY",
+            doctorSignature:"Szpilman"
+        },{
+            date:"2014/01/21",
+            kindOfVisit:"ZZZ",
+            doctorSignature:"Szpilman"
+        }],
+        birthInfo:{
+            bodyWeight:2000,
+            bodyLength:40,
+            headCircuit:30,
+            chestCircuit:45
+        }
+    },{
+        _id:'aaaaaaaaaaaaaaaaaaaaaa11',
+        parentId:'a1b2c3d4e5f6a1b2c3d4e5f6',
+        childInfo : {
+            surname: 'Nowak',
+            firstname:'Marek',
+            dateOfBirth:'1993/10/20',
+            placeOfBirth:'Gniezno',
+            address:'os. xxx 45/3, 62-200 Gniezno',
+            pesel:611111111111
+        },
+        familyInfo:{
+            motherName:'Maria',
+            fatherName:'Janusz',
+            contactPhone:'xxx-xxx-xxx'
+        },
+        prenatalInfo:{
+            motherAge:27,
+            bloodGroup:'B',
+            motherRhFactor:'X',
+            isImmuAntyRhDApplied:true,
+            isPreventionDurringPregnacy:true,
+            isPreventionAfterChildBirth:true,
+            pregnancyNumber:3,
+            isSingle:true,
+            isMultiFetal:false,
+            caregiver:'Piotr Szpilkowski',
+            date:'27/01/2017'
+        },
+        visitsInfo:[{
+            date:"2013/01/21",
+            kindOfVisit:"XXXX",
+            doctorSignature:"Szpilman"
+        },{
+            date:"2013/04/21",
+            kindOfVisit:"XXXX",
+            doctorSignature:"Szpilman"
+        },{
+            date:"2013/05/21",
+            kindOfVisit:"YYYY",
+            doctorSignature:"Szpilman"
+        },{
+            date:"2014/01/21",
+            kindOfVisit:"ZZZ",
+            doctorSignature:"Szpilman"
+        }],
+        birthInfo:{
+            bodyWeight:2000,
+            bodyLength:40,
+            headCircuit:30,
+            chestCircuit:45
+        }
+    },{
+        _id:'aaaaaaaaaaaaaaaaaaaaaa21',
+        parentId:'a1b2c3d4e5f6a1b2c3d4e5f6',
+        childInfo : {
+            surname: 'Nowak',
+            firstname:'Marek',
+            dateOfBirth:'1993/10/20',
+            placeOfBirth:'Gniezno',
+            address:'os. xxx 45/3, 62-200 Gniezno',
+            pesel:611111111111
+        },
+        familyInfo:{
+            motherName:'Maria',
+            fatherName:'Janusz',
+            contactPhone:'xxx-xxx-xxx'
+        },
+        prenatalInfo:{
+            motherAge:27,
+            bloodGroup:'B',
+            motherRhFactor:'X',
+            isImmuAntyRhDApplied:true,
+            isPreventionDurringPregnacy:true,
+            isPreventionAfterChildBirth:true,
+            pregnancyNumber:3,
+            isSingle:true,
+            isMultiFetal:false,
+            caregiver:'Piotr Szpilkowski',
+            date:'27/01/2017'
+        },
+        visitsInfo:[{
+            date:"2013/01/21",
+            kindOfVisit:"XXXX",
+            doctorSignature:"Szpilman"
+        },{
+            date:"2013/04/21",
+            kindOfVisit:"XXXX",
+            doctorSignature:"Szpilman"
+        },{
+            date:"2013/05/21",
+            kindOfVisit:"YYYY",
+            doctorSignature:"Szpilman"
+        },{
+            date:"2014/01/21",
+            kindOfVisit:"ZZZ",
+            doctorSignature:"Szpilman"
+        }],
+        birthInfo:{
+            bodyWeight:2000,
+            bodyLength:40,
+            headCircuit:30,
+            chestCircuit:45
+        }
+    },{
+        _id:'aaaaaaaaaaaaaaaaaaaaaa31',
+        parentId:'a1b2c3d4e5f6a1b2c3d4e5f6',
+        childInfo : {
+            surname: 'Nowak',
+            firstname:'Marek',
+            dateOfBirth:'1993/10/20',
+            placeOfBirth:'Gniezno',
+            address:'os. xxx 45/3, 62-200 Gniezno',
+            pesel:611111111111
+        },
+        familyInfo:{
+            motherName:'Maria',
+            fatherName:'Janusz',
+            contactPhone:'xxx-xxx-xxx'
+        },
+        prenatalInfo:{
+            motherAge:27,
+            bloodGroup:'B',
+            motherRhFactor:'X',
+            isImmuAntyRhDApplied:true,
+            isPreventionDurringPregnacy:true,
+            isPreventionAfterChildBirth:true,
+            pregnancyNumber:3,
+            isSingle:true,
+            isMultiFetal:false,
+            caregiver:'Piotr Szpilkowski',
+            date:'27/01/2017'
+        },
+        visitsInfo:[{
+            date:"2013/01/21",
+            kindOfVisit:"XXXX",
+            doctorSignature:"Szpilman"
+        },{
+            date:"2013/04/21",
+            kindOfVisit:"XXXX",
+            doctorSignature:"Szpilman"
+        },{
+            date:"2013/05/21",
+            kindOfVisit:"YYYY",
+            doctorSignature:"Szpilman"
+        },{
+            date:"2014/01/21",
+            kindOfVisit:"ZZZ",
+            doctorSignature:"Szpilman"
+        }],
+        birthInfo:{
+            bodyWeight:2000,
+            bodyLength:40,
+            headCircuit:30,
+            chestCircuit:45
         }
     }, {
-        parentId:'56a79f343c5600bb0dee4474',
+        _id:'aaaaaaaaaaaaaaaaaaaaaaa2',
+        parentId:'56a7b020ffa37c0c112f322c',
         childInfo : {
             surname: 'Perka',
             firstname:'Katarzyna',
-            dateOfBirth:{
-                day:1,
-                month:12,
-                year:1993
-            },
+            dateOfBirth:'1993/10/20',
             placeOfBirth:'Gniezno',
             address:'os. xxx 45/3, 62-200 Gniezno',
             pesel:511111111111
+        },
+        familyInfo:{
+            motherName:'Maria',
+            fatherName:'Janusz',
+            contactPhone:'xxx-xxx-xxx'
+        },
+        prenatalInfo:{
+            motherAge:27,
+            bloodGroup:'B',
+            motherRhFactor:'X',
+            isImmuAntyRhDApplied:true,
+            isPreventionDurringPregnacy:true,
+            isPreventionAfterChildBirth:true,
+            pregnancyNumber:3,
+            isSingle:true,
+            isMultiFetal:false,
+            caregiver:'Piotr Szpilkowski',
+            date:'27/01/2017'
+        },
+        visitsInfo:[{
+            date:"2013/01/21",
+            kindOfVisit:"XXXX",
+            doctorSignature:"Szpilman"
+        },{
+            date:"2013/04/21",
+            kindOfVisit:"XXXX",
+            doctorSignature:"Szpilman"
+        },{
+            date:"2013/05/21",
+            kindOfVisit:"YYYY",
+            doctorSignature:"Szpilman"
+        },{
+            date:"2014/01/21",
+            kindOfVisit:"ZZZ",
+            doctorSignature:"Szpilman"
+        }],
+        birthInfo:{
+            bodyWeight:2000,
+            bodyLength:40,
+            headCircuit:30,
+            chestCircuit:45
         }
     }, {
+        _id:'aaaaaaaaaaaaaaaaaaaaaaa3',
         parentId:'56a7b020ffa37c0c112f322c',
         childInfo : {
             surname: 'Lukasik',
             firstname:'Wiktoria',
-            dateOfBirth:{
-                day:1,
-                month:12,
-                year:1993
-            },
+            dateOfBirth:'1993/10/20',
             placeOfBirth:'Gniezno',
             address:'os. xxx 45/3, 62-200 Gniezno',
             pesel:411111111111
+        },
+        prenatalInfo:{
+            motherAge:27,
+            bloodGroup:'B',
+            motherRhFactor:'X',
+            isImmuAntyRhDApplied:true,
+            isPreventionDurringPregnacy:true,
+            isPreventionAfterChildBirth:true,
+            pregnancyNumber:3,
+            isSingle:true,
+            isMultiFetal:false,
+            caregiver:'Piotr Szpilkowski',
+            date:'27/01/2017'
+        },
+        visitsInfo:[{
+            date:"2013/01/21",
+            kindOfVisit:"XXXX",
+            doctorSignature:"Szpilman"
+        },{
+            date:"2013/04/21",
+            kindOfVisit:"XXXX",
+            doctorSignature:"Szpilman"
+        },{
+            date:"2013/05/21",
+            kindOfVisit:"YYYY",
+            doctorSignature:"Szpilman"
+        },{
+            date:"2014/01/21",
+            kindOfVisit:"ZZZ",
+            doctorSignature:"Szpilman"
+        }],
+        birthInfo:{
+            bodyWeight:2000,
+            bodyLength:40,
+            headCircuit:30,
+            chestCircuit:45
         }
     }, {
-        parentId:'56a7b020ffa37c0c112f322c',
+        _id:'aaaaaaaaaaaaaaaaaaaaaaa4',
+        //parentId:'56a7b020ffa37c0c112f322c',
+        parentId:'a1b2c3d4e5f6a1b2c3d4e5f6',
         childInfo : {
             surname: 'Sobota',
             firstname:'Robert',
-            dateOfBirth:{
-                day:1,
-                month:12,
-                year:1993
-            },
+            dateOfBirth:'1993/10/20',
             placeOfBirth:'Gniezno',
             address:'os. xxx 45/3, 62-200 Gniezno',
             pesel:311111111111
+        },
+        prenatalInfo:{
+            motherAge:27,
+            bloodGroup:'B',
+            motherRhFactor:'X',
+            isImmuAntyRhDApplied:true,
+            isPreventionDurringPregnacy:true,
+            isPreventionAfterChildBirth:true,
+            pregnancyNumber:3,
+            isSingle:true,
+            isMultiFetal:false,
+            caregiver:'Piotr Szpilkowski',
+            date:'27/01/2017'
+        },
+        visitsInfo:[{
+            date:"2013/01/21",
+            kindOfVisit:"XXXX",
+            doctorSignature:"Szpilman"
+        },{
+            date:"2013/04/21",
+            kindOfVisit:"XXXX",
+            doctorSignature:"Szpilman"
+        },{
+            date:"2013/05/21",
+            kindOfVisit:"YYYY",
+            doctorSignature:"Szpilman"
+        },{
+            date:"2014/01/21",
+            kindOfVisit:"ZZZ",
+            doctorSignature:"Szpilman"
+        }],
+        birthInfo:{
+            bodyWeight:2000,
+            bodyLength:40,
+            headCircuit:30,
+            chestCircuit:45
         }
     }, {
-        parentId:'56a7b020ffa37c0c112f322c',
+        _id:'aaaaaaaaaaaaaaaaaaaaaaa5',
+        parentId:'a1b2c3d4e5f6a1b2c3d4e5f6',
+        //parentId:'56a7b020ffa37c0c112f322c',
         childInfo : {
             surname: 'Wojcik',
             firstname:'Wojciech',
-            dateOfBirth:{
-                day:1,
-                month:12,
-                year:1993
-            },
+            dateOfBirth:'1993/10/20',
             placeOfBirth:'Gniezno',
             address:'os. xxx 45/3, 62-200 Gniezno',
             pesel:211111111111
+        },
+        prenatalInfo:{
+            motherAge:27,
+            bloodGroup:'B',
+            motherRhFactor:'X',
+            isImmuAntyRhDApplied:true,
+            isPreventionDurringPregnacy:true,
+            isPreventionAfterChildBirth:true,
+            pregnancyNumber:3,
+            isSingle:true,
+            isMultiFetal:false,
+            caregiver:'Piotr Szpilkowski',
+            date:'27/01/2017'
+        },
+        visitsInfo:[{
+            date:"2013/01/21",
+            kindOfVisit:"XXXX",
+            doctorSignature:"Szpilman"
+        },{
+            date:"2013/04/21",
+            kindOfVisit:"XXXX",
+            doctorSignature:"Szpilman"
+        },{
+            date:"2013/05/21",
+            kindOfVisit:"YYYY",
+            doctorSignature:"Szpilman"
+        },{
+            date:"2014/01/21",
+            kindOfVisit:"ZZZ",
+            doctorSignature:"Szpilman"
+        }],
+        birthInfo:{
+            bodyWeight:2000,
+            bodyLength:40,
+            headCircuit:30,
+            chestCircuit:45
         }
     })
     .then(function() {
-      console.log('finished populating users');
+      console.log('finished populating patients');
     });
   });
