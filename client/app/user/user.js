@@ -8,7 +8,8 @@ angular.module('ksiazeczkaZdrowiaApp')
         templateUrl: 'app/user/user.html',
         controller: 'UserCtrl'
       })
-    .state('usersList', {
+      .state('usersList', {
         url:'/users',
-        templateUrl:'app/user/tempaltes/users-list.html'
-  });
+        templateUrl:'app/user/templates/users-list.html'
+    });
+});

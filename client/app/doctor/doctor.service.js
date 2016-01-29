@@ -3,7 +3,7 @@
 (function() {
     
 function DoctorResource($resource) {
-    return $resource('/api/user/:id',{
+    return $resource('/api/users/:id',{
         id: null
     },
     {
