@@ -9,14 +9,15 @@
   <br>
   <div class="col-sm-6 col-md-4" ng-show="doctors.length < 1"> Brak lekarzy w  systemie.</div>
   <div class="row">
-    <div class="col-sm-6 col-md-4" ng-repeat="doctor in doctors">
+    <div class="col-sm-6 col-md-4" ng-hide="doctors.length <1"  ng-repeat="doctor in doctors">
       <div class="thumbnail">
         <img src="http://placehold.it/300x200" alt="">
         <div class="caption">
-          <h3>{{doctor.firstname}} {{doctor.surname}}</h3>
           <strong>Id:</strong>{{doctor._id}}<br>
-          <strong>Email:</strong>{{doctor.email}}<br>
-          <p><a href="#" class="btn btn-info " role="button">Edytuj</a> <a href="#" class="btn btn-danger" role="button">Usun</a></p>
+          <strong>Imie:</strong>{{doctor.firstname}}<br>
+          <strong>Naziwsko:</strong>{{doctor.surname}}<br>
+          <strong>Email:</strong>{{doctor.email}}<br><br>
+          <p><a href="#" class="btn btn-info " role="button">Edytuj</a> <a class="btn btn-danger" role="button" ng-click="deleteDoctor(doctor)">Usun</a></p>
         </div>
       </div>
     </div>
