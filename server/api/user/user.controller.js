@@ -139,7 +139,7 @@ exports.doctors = function(req, res) {
 /**
  * Get list of parents
  */
-exports.doctors = function(req, res) {
+exports.parents = function(req, res) {
   User.findAsync({'role':'user'}, '-salt -password')
     .then(function(doctors) {
       res.status(200).json(doctors);
