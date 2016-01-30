@@ -1,8 +1,13 @@
 'use strict';
 
 angular.module('ksiazeczkaZdrowiaApp')
-  .controller('PatientsCtrl', function ($scope,Patient) {
+  .controller('PatientsCtrl', function ($scope,$state, $stateParams, Patient) {
     $scope.patients = Patient.query();
+
+    $scope.deletePatient = function (patient){
+        Patient.remove({id: patient._id});
+        $scope.patients.splice($scope.patients.indexOf(patient),1);
+    }
   })
   .controller('PatientViewCtrl',function ($scope, $state, $stateParams, Patient) {
     $scope.patient = Patient.get({id: $stateParams.id});
