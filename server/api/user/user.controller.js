@@ -137,6 +137,16 @@ exports.doctors = function(req, res) {
     .catch(handleError(res));
 };
 /**
+ * Get list of parents
+ */
+exports.doctors = function(req, res) {
+  User.findAsync({'role':'user'}, '-salt -password')
+    .then(function(doctors) {
+      res.status(200).json(doctors);
+    })
+    .catch(handleError(res));
+};
+/**
  * Authentication callback
  */
 exports.authCallback = function(req, res, next) {
