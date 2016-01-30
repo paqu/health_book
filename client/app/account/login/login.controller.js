@@ -26,7 +26,7 @@ class LoginController {
         if ('admin' == user.role)
             this.$state.go('admin');
         else if ('user' == user.role)
-            this.$state.go('user');
+            this.$state.go('parent');
         else
             this.$state.go('doctor');
       })
