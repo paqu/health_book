@@ -16,20 +16,21 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.szpileq.android.ksiazeczkazdrowia.Activities.ChildActivity;
+import com.szpileq.android.ksiazeczkazdrowia.Info.VisitInfo;
 
 import java.util.ArrayList;
 
-public class PatientAdapter extends ArrayAdapter<PatientBasic> {
+public class VisitsAdapter extends ArrayAdapter<VisitInfo> {
 
     private Activity activity;
-    private ArrayList<PatientBasic> lPatientBasics;
+    private ArrayList<VisitInfo> lVisits;
     private static LayoutInflater inflater = null;
 
-    public PatientAdapter (Activity activity, int textViewResourceId,ArrayList<PatientBasic> _lPatientBasics) {
+    public VisitsAdapter (Activity activity, int textViewResourceId,ArrayList<VisitInfo> _lVisits) {
         super(activity, textViewResourceId);
         try {
             this.activity = activity;
-            this.lPatientBasics = _lPatientBasics;
+            this.lVisits = _lVisits;
 
             inflater = (LayoutInflater) activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
@@ -39,7 +40,7 @@ public class PatientAdapter extends ArrayAdapter<PatientBasic> {
     }
 
     public int getCount() {
-        return lPatientBasics.size();
+        return lVisits.size();
     }
 
     public Activity getActivity(){
@@ -51,9 +52,8 @@ public class PatientAdapter extends ArrayAdapter<PatientBasic> {
     }
 
     public static class ViewHolder {
-        public TextView display_firstname;
-        public TextView display_surname;
-        public TextView display_pesel;
+        public TextView display_date;
+        public TextView display_drName;
         public Button   more_button;
 
     }
@@ -63,13 +63,12 @@ public class PatientAdapter extends ArrayAdapter<PatientBasic> {
         final ViewHolder holder;
         try {
             if (convertView == null) {
-                vi = inflater.inflate(R.layout.kids_association, null);
+                vi = inflater.inflate(R.layout.visits_assotiation, null);
                 holder = new ViewHolder();
 
-                holder.display_firstname = (TextView) vi.findViewById(R.id.childNameText);
-                holder.display_surname = (TextView) vi.findViewById(R.id.childSurnameText);
-                holder.display_pesel = (TextView) vi.findViewById(R.id.childPeselText);
-                holder.more_button = (Button) vi.findViewById(R.id.moreButton);
+                holder.display_date = (TextView) vi.findViewById(R.id.visitsListDateText);
+                holder.display_drName = (TextView) vi.findViewById(R.id.visitsListDoctorsName);
+                holder.more_button = (Button) vi.findViewById(R.id.visitsListMoreButton);
 
                 vi.setTag(holder);
             } else {
@@ -77,20 +76,12 @@ public class PatientAdapter extends ArrayAdapter<PatientBasic> {
             }
 
 
-            holder.display_firstname.setText(lPatientBasics.get(position).getChildInfo().getFirstname());
-            holder.display_surname.setText(lPatientBasics.get(position).getChildInfo().getSurname());
-            holder.display_pesel.setText(lPatientBasics.get(position).getChildInfo().getPesel());
+            holder.display_date.setText(lVisits.get(position).getDate());
+            holder.display_drName.setText(lVisits.get(position).getDoctorSignature());
             holder.more_button.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
 
-                    Bundle bundle = new Bundle();
-                    bundle.putString("childID", lPatientBasics.get(position).get_id());
-
-                    Intent i = new Intent(activity, ChildActivity.class);
-                    i.putExtras(bundle);
-
-                    activity.startActivity(i);
                 }
             });
 

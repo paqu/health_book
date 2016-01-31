@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="100dp">
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="59dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="15dp"
+        android:layout_marginLeft="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Dr Nazwisko"
+            android:id="@+id/visitsListDoctorsName"
+            android:layout_row="0"
+            android:layout_column="0" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Data"
+            android:id="@+id/visitsListDateText"
+            android:layout_row="1"
+            android:layout_column="0"
+            android:layout_gravity="top" />
+
+        <Button
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="Więcej"
+            android:id="@+id/visitsListMoreButton"
+            android:layout_row="0"
+            android:layout_column="2"
+            android:background="#4e4e4e"
+            android:textColor="#ffffff"
+            android:layout_rowSpan="2"
+            android:layout_gravity="right" />
+
+    </GridLayout>
+</LinearLayout>

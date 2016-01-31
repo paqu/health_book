@@ -422,7 +422,7 @@
             android:layout_below="@id/childProfileIsMultifetalText"
             android:layout_marginLeft="120dp"
             android:text="Brak informacji"
-            android:id="@+id/childProfileCaregiverNumberText" />
+            android:id="@+id/childProfileCaregiverText" />
 
         <!-- PDate  -->
         <TextView
@@ -436,7 +436,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_toRightOf="@+id/childProfileMotherAgeLabel"
-            android:layout_below="@id/childProfileCaregiverNumberText"
+            android:layout_below="@id/childProfileCaregiverText"
             android:layout_marginLeft="120dp"
             android:text="Brak informacji"
             android:id="@+id/childProfileDateText" />
