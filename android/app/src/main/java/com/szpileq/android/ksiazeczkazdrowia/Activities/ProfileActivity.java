@@ -48,7 +48,7 @@ public class ProfileActivity extends Activity {
 
         params = new ArrayList<NameValuePair>();
         ServerRequestGet getUserDataRequest = new ServerRequestGet();
-        JSONObject jsonUserData = getUserDataRequest.getJSON("http://192.168.0.9:9000/api/users/me", params, token);
+        JSONObject jsonUserData = getUserDataRequest.getJSON("http://192.168.1.21:9000/api/users/me", params, token);
         //System.out.println(jsonUserData);
 
         try {
@@ -66,7 +66,7 @@ public class ProfileActivity extends Activity {
 
 
             ServerRequestGet getKidsDataRequest = new ServerRequestGet();
-            String jsonKidsData = getKidsDataRequest.getJSONArr("http://192.168.0.9:9000/api/patients/mychildren/"+jsonUserData.getString("_id"), params, token);
+            String jsonKidsData = getKidsDataRequest.getJSONArr("http://192.168.1.21:9000/api/patients/mychildren/"+jsonUserData.getString("_id"), params, token);
             //String jsonKidsData = new String("[{\"_id\":\"56a67d9c27b192640290ec72\",\"__v\":0,\"ChildInfo\":{\"surname\":\"Nowak\",\"firstname\":\"Julian\",\"placeOfBirth\":\"Gniezno\",\"address\":\"os. xxx 45/3, 62-200 Gniezno\",\"pesel\":111111111111,\"dateOfBirth\":{\"day\":1,\"month\":12,\"year\":1993}}},{\"_id\":\"56a67d9c27b192640290ec73\",\"__v\":0,\"ChildInfo\":{\"surname\":\"Nowak\",\"firstname\":\"Marek\",\"placeOfBirth\":\"Gniezno\",\"address\":\"os. xxx 45/3, 62-200 Gniezno\",\"pesel\":611111111111,\"dateOfBirth\":{\"day\":1,\"month\":12,\"year\":1993}}},{\"_id\":\"56a67d9c27b192640290ec74\",\"__v\":0,\"ChildInfo\":{\"surname\":\"Perka\",\"firstname\":\"Katarzyna\",\"placeOfBirth\":\"Gniezno\",\"address\":\"os. xxx 45/3, 62-200 Gniezno\",\"pesel\":511111111111,\"dateOfBirth\":{\"day\":1,\"month\":12,\"year\":1993}}},{\"_id\":\"56a67d9c27b192640290ec75\",\"__v\":0,\"ChildInfo\":{\"surname\":\"Lukasik\",\"firstname\":\"Wiktoria\",\"placeOfBirth\":\"Gniezno\",\"address\":\"os. xxx 45/3, 62-200 Gniezno\",\"pesel\":411111111111,\"dateOfBirth\":{\"day\":1,\"month\":12,\"year\":1993}}},{\"_id\":\"56a67d9c27b192640290ec76\",\"__v\":0,\"ChildInfo\":{\"surname\":\"Sobota\",\"firstname\":\"Robert\",\"placeOfBirth\":\"Gniezno\",\"address\":\"os. xxx 45/3, 62-200 Gniezno\",\"pesel\":311111111111,\"dateOfBirth\":{\"day\":1,\"month\":12,\"year\":1993}}},{\"_id\":\"56a67d9c27b192640290ec77\",\"__v\":0,\"ChildInfo\":{\"surname\":\"Wojcik\",\"firstname\":\"Wojciech\",\"placeOfBirth\":\"Gniezno\",\"address\":\"os. xxx 45/3, 62-200 Gniezno\",\"pesel\":211111111111,\"dateOfBirth\":{\"day\":1,\"month\":12,\"year\":1993}}}]");
             try {
                 System.out.println(jsonKidsData);

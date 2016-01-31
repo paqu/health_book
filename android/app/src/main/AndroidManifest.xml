@@ -17,11 +17,6 @@
         <activity
             android:name=".Activities.LoginActivity"
             android:label="Login">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".Activities.ProfileActivity"
@@ -30,6 +25,11 @@
 
         <activity android:name=".Activities.ChildActivity"
             android:label="Informacje o dziecku">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
 
     </application>

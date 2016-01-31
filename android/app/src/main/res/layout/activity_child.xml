@@ -1,3 +1,8 @@
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -34,9 +39,9 @@
         android:id="@+id/childCategoriesText"
         android:layout_gravity="left" />
 
-
+    <!--    CHILD INFO -->
     <TextView
-        android:id="@+id/help_title_gest"
+        android:id="@+id/childInfoPanelText"
         android:text="Podstawowe informacje o dziecku"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:clickable="true"
@@ -45,15 +50,16 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="15dp"
         android:layout_gravity="left"/>
-
     <!--content to hide/show -->
     <RelativeLayout
-        android:id="@+id/txt_help_gest"
+        android:id="@+id/childInfoPanel"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:background="#efefef"
-        android:layout_marginLeft="15dp" >
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp">
 
+        <!--    Name    -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -65,7 +71,7 @@
             android:layout_height="wrap_content"
             android:layout_toRightOf="@+id/childProfileNameLabel"
             android:layout_marginLeft="150dp"
-            android:text="Name"
+            android:text="Brak informacji"
             android:id="@+id/childProfileNameText" />
 
         <!-- Surname -->
@@ -82,9 +88,386 @@
             android:layout_toRightOf="@+id/childProfileNameLabel"
             android:layout_below="@id/childProfileNameText"
             android:layout_marginLeft="150dp"
-            android:text="Name"
+            android:text="Brak informacji"
             android:id="@+id/childProfileSurnameText" />
 
+        <!-- Address -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Adres:"
+            android:layout_below="@id/childProfileSurnameLabel"
+            android:id="@+id/childProfileAddressLabel" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/childProfileNameLabel"
+            android:layout_below="@id/childProfileSurnameText"
+            android:layout_marginLeft="150dp"
+            android:text="Brak informacji"
+            android:id="@+id/childProfileAddressText" />
+
+        <!-- Place of birth -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Miejsce urodzenia:"
+            android:layout_below="@id/childProfileAddressLabel"
+            android:id="@+id/childProfilePlaceOfBirthLabel" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/childProfileNameLabel"
+            android:layout_below="@id/childProfileAddressText"
+            android:layout_marginLeft="150dp"
+            android:text="Brak informacji"
+            android:id="@+id/childProfilePlaceOfBirthText" />
+
+        <!-- Date of Birth -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Data urodzenia:"
+            android:layout_below="@id/childProfilePlaceOfBirthLabel"
+            android:id="@+id/childProfileDateOfBirthLabel" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/childProfileNameLabel"
+            android:layout_below="@id/childProfilePlaceOfBirthText"
+            android:layout_marginLeft="150dp"
+            android:text="Brak informacji"
+            android:id="@+id/childProfileDateOfBirthText" />
+
+        <!-- PESEL -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pesel:"
+            android:layout_below="@id/childProfileDateOfBirthLabel"
+            android:id="@+id/childProfilePeselLabel" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/childProfileNameLabel"
+            android:layout_below="@id/childProfileDateOfBirthText"
+            android:layout_marginLeft="150dp"
+            android:text="Brak informacji"
+            android:id="@+id/childProfilePeselText" />
+
     </RelativeLayout>
+    <!--    /CHILD INFO -->
+
+
+    <!--    FAMILY INFO -->
+    <TextView
+        android:id="@+id/familyInfoPanelText"
+        android:text="Informacje rodzinne"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:clickable="true"
+        android:onClick="toggle_contents"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_gravity="left"/>
+    <!--content to hide/show -->
+    <RelativeLayout
+        android:id="@+id/familyInfoPanel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#efefef"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Imię matki:"
+            android:id="@+id/childProfileMotherNameLabel" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/childProfileMotherNameLabel"
+            android:layout_marginLeft="120dp"
+            android:text="Brak informacji"
+            android:id="@+id/childProfileMotherNameText" />
+
+        <!-- Father's name -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Imię ojca:"
+            android:layout_below="@id/childProfileMotherNameLabel"
+            android:id="@+id/childProfileFatherNameLabel" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/childProfileMotherNameLabel"
+            android:layout_below="@id/childProfileMotherNameText"
+            android:layout_marginLeft="120dp"
+            android:text="Brak informacji"
+            android:id="@+id/childProfileFatherNameText" />
+
+        <!-- Contact phone -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Telefon kontaktowy:"
+            android:layout_below="@id/childProfileFatherNameLabel"
+            android:id="@+id/childProfileContactPhoneLabel" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/childProfileMotherNameLabel"
+            android:layout_below="@id/childProfileFatherNameText"
+            android:layout_marginLeft="120dp"
+            android:text="Brak informacji"
+            android:id="@+id/childProfileContactPhoneText" />
+
+    </RelativeLayout>
+    <!--    /FAMILY INFO    -->
+
+
+    <!--    PRENATAL INFO -->
+    <TextView
+        android:id="@+id/prenatalInfoPanelText"
+        android:text="Informacje prenatalne"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:clickable="true"
+        android:onClick="toggle_contents"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_gravity="left"/>
+    <!--content to hide/show -->
+    <RelativeLayout
+        android:id="@+id/prenatalInfoPanel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#efefef"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Wiek matki:"
+            android:id="@+id/childProfileMotherAgeLabel" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/childProfileMotherAgeLabel"
+            android:layout_marginLeft="120dp"
+            android:text="Brak informacji"
+            android:id="@+id/childProfileMotherAgeText" />
+
+        <!-- Blood group -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Grupa krwii:"
+            android:layout_below="@id/childProfileMotherAgeLabel"
+            android:id="@+id/childProfileBloodGroupLabel" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/childProfileMotherAgeLabel"
+            android:layout_below="@id/childProfileMotherAgeText"
+            android:layout_marginLeft="120dp"
+            android:text="Brak informacji"
+            android:id="@+id/childProfileBloodGroupText" />
+
+        <!-- Mother's RH group -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Czynnik RH matki:"
+            android:layout_below="@id/childProfileBloodGroupLabel"
+            android:id="@+id/childProfileMothersRHLabel" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/childProfileMotherAgeLabel"
+            android:layout_below="@id/childProfileBloodGroupText"
+            android:layout_marginLeft="120dp"
+            android:text="Brak informacji"
+            android:id="@+id/childProfileMothersRHText" />
+
+        <!-- ImmuAntyRHD application -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Podane ImmuAntyRHD?:"
+            android:layout_below="@id/childProfileMothersRHLabel"
+            android:id="@+id/childProfileImmuAntyRHDLabel" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/childProfileMotherAgeLabel"
+            android:layout_below="@id/childProfileMothersRHText"
+            android:layout_marginLeft="120dp"
+            android:text="Brak informacji"
+            android:id="@+id/childProfileImmuAntyRHDText" />
+
+        <!-- Prevention during pregnancy -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ochrona w czasie ciązy?:"
+            android:layout_below="@id/childProfileImmuAntyRHDLabel"
+            android:id="@+id/childProfilePregnancyPreventionLabel" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/childProfileMotherAgeLabel"
+            android:layout_below="@id/childProfileImmuAntyRHDText"
+            android:layout_marginLeft="120dp"
+            android:text="Brak informacji"
+            android:id="@+id/childProfilePregnancyPreventionText" />
+
+        <!-- Prevention after birth -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Grupa krwii:"
+            android:layout_below="@id/childProfilePregnancyPreventionLabel"
+            android:id="@+id/childProfilePreventionAfterBirthLabel" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/childProfileMotherAgeLabel"
+            android:layout_below="@id/childProfilePregnancyPreventionText"
+            android:layout_marginLeft="120dp"
+            android:text="Brak informacji"
+            android:id="@+id/childProfilePreventionAfterBirthText" />
+
+        <!-- Pregnancy number -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Numer ciąży:"
+            android:layout_below="@id/childProfilePreventionAfterBirthLabel"
+            android:id="@+id/childProfilePregnancyNumberLabel" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/childProfileMotherAgeLabel"
+            android:layout_below="@id/childProfilePreventionAfterBirthText"
+            android:layout_marginLeft="120dp"
+            android:text="Brak informacji"
+            android:id="@+id/childProfilePregnancyNumberText" />
+
+        <!-- Is single -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ciąża pojedyncza?:"
+            android:layout_below="@id/childProfilePregnancyNumberLabel"
+            android:id="@+id/childProfileIsSingleLabel" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/childProfileMotherAgeLabel"
+            android:layout_below="@id/childProfilePregnancyNumberText"
+            android:layout_marginLeft="120dp"
+            android:text="Brak informacji"
+            android:id="@+id/childProfileIsSingleText" />
+
+        <!-- Is multifetal -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ciąża wielopłodowa?:"
+            android:layout_below="@id/childProfileIsSingleLabel"
+            android:id="@+id/childProfileIsMultifetalLabel" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/childProfileMotherAgeLabel"
+            android:layout_below="@id/childProfileIsSingleText"
+            android:layout_marginLeft="120dp"
+            android:text="Brak informacji"
+            android:id="@+id/childProfileIsMultifetalText" />
+
+        <!-- caregiver -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Opiekun:"
+            android:layout_below="@id/childProfileIsMultifetalLabel"
+            android:id="@+id/childProfileCaregiverLabel" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/childProfileMotherAgeLabel"
+            android:layout_below="@id/childProfileIsMultifetalText"
+            android:layout_marginLeft="120dp"
+            android:text="Brak informacji"
+            android:id="@+id/childProfileCaregiverNumberText" />
+
+        <!-- PDate  -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Data porodu:"
+            android:layout_below="@id/childProfileCaregiverLabel"
+            android:id="@+id/childProfileDateLabel" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/childProfileMotherAgeLabel"
+            android:layout_below="@id/childProfileCaregiverNumberText"
+            android:layout_marginLeft="120dp"
+            android:text="Brak informacji"
+            android:id="@+id/childProfileDateText" />
+
+    </RelativeLayout>
+    <!--    /PRENATAL INFO    -->
+
+    <!--    VISITS INFO -->
+    <TextView
+        android:id="@+id/visitInfoPanelText"
+        android:text="Dziennik wizyt"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:clickable="true"
+        android:onClick="toggle_contents"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_gravity="left"/>
+    <!--content to hide/show -->
+    <RelativeLayout
+        android:id="@+id/visitInfoPanel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#efefef"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp">
+
+
+    </RelativeLayout>
+    <!--    /VISITS INFO    -->
+
 
 </LinearLayout>
+</ScrollView>
