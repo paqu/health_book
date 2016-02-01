@@ -24,7 +24,7 @@ class LoginController {
         // Logged in, redirect to home
         console.log(user);
         if ('admin' == user.role)
-            this.$state.go('admin');
+            this.$state.go('doctorsList');
         else if ('user' == user.role)
             this.$state.go('parent');
         else
