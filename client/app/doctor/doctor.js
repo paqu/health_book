@@ -15,20 +15,20 @@ angular.module('ksiazeczkaZdrowiaApp')
       })
       .state('newDoctor', {
         url: '/doctors/new',
-        templateUrl: 'app/doctors/templates/doctor-new.html',
-        controller: 'DoctorNewCtrl',
+        templateUrl: 'app/doctor/templates/doctor-new.html',
+        controller: 'DoctorNewCtrl'
         //controllerAs:'doctorsNew'
       })
       .state('viewDoctor', {
         url: '/doctors/:id',
-        templateUrl: 'app/doctors/templates/doctor-view.html',
-        controller: 'DoctorViewCtrl',
+        templateUrl: 'app/doctor/templates/doctor-view.html',
+        controller: 'DoctorViewCtrl'
         //controllerAs:'doctorsView'
       })
       .state('editDoctor', {
         url: '/doctors/:id/edit',
-        templateUrl: 'app/doctors/templates/doctor-edit.html',
-        controller: 'DoctorEditCtrl',
+        templateUrl: 'app/doctor/templates/doctor-edit.html',
+        controller: 'DoctorEditCtrl'
         //controllerAs:'doctorsEidt'
       });
   });
