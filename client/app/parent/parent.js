@@ -12,5 +12,10 @@ angular.module('ksiazeczkaZdrowiaApp')
           url: '/parents',
           templateUrl: 'app/parent/templates/parents-list.html',
           controller:'ParentCtrl'
+      })
+      .state('editParent', {
+        url: '/parents/:id/edit',
+        templateUrl: 'app/parent/templates/parent-edit.html',
+        controller: 'ParentEditCtrl'
       });
   });

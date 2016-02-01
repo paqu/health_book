@@ -22,7 +22,7 @@
           <td class="text-center">{{parent.firstname}}</td>
           <td class="text-center">{{parent.surname}}</td>
           <td class="text-center">{{parent.email}}</td>
-          <td class="text-right"><a class="btn btn-info"  class="btn btn-default" role="button">Edytuj </a></td>
+          <td class="text-right"><a ui-sref="editParent({id:parent._id})" class="btn btn-info"  class="btn btn-default" role="button">Edytuj </a></td>
           <td class="text-center"><a class="btn btn-danger" ng-click="deleteParent(parent)">Usun</a></td>
         </tr>
       </tbody>
