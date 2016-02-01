@@ -83,11 +83,11 @@ Przewidywane trudnosci:
 - brak przewidywanych trudnosci
 
 Opis uruchomienia aplikacji mobilnej:
-1. Wymagania
-  -- Android Studio
-2. Środowisko
-  -- API 16
-3. Instrukcja:
-  -- Stworzyć przykładowy telefon w AVD
-  -- w LoginActivity, ProfileActivity oraz ChildActivity należy podmienić adres IP na taki, pod którym znajduje się serwer.
-  -- Zbudować i włączyć aplikację.
+ * Wymagania
+  - Android Studio
+ * Środowisko
+  - API 16
+ * Instrukcja:
+  - Stworzyć przykładowy telefon w AVD
+  - w LoginActivity, ProfileActivity oraz ChildActivity należy podmienić adres IP na taki, pod którym znajduje się serwer.
+  - Zbudować i włączyć aplikację.
