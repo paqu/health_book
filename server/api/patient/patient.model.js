@@ -5,6 +5,7 @@ var Schema = mongoose.Schema;
 
 var PatientSchema = new Schema({
     parentId:String,
+    doctorId:String,
     childInfo:{
       surname: String,
       firstname:String,
