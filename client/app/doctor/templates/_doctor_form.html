@@ -1,23 +1,24 @@
 <div class="form-group">
-    <label for="title" class="col-sm-2 control-label">Imie:</label>
-      <div class="col-sm-10">
-            <input type="text" ng-model="patient.childInfo.firstname" class="form-control" id="firstname" placeholder="Imie pacjenta"/>
-     </div>
+  <label for="firstname" class="col-sm-2 control-label">Imie:</label>
+  <div class="col-sm-10">
+    <input type="text" name="firstname"ng-model="doctor.firstname" class="form-control" id="firstname" placeholder="Imie doktora" required/>
+  </div>
 </div>
 <div class="form-group">
-    <label for="year" class="col-sm-2 control-label">Nazwisko:</label>
-      <div class="col-sm-10">
-            <input type="text" ng-model="patient.childInfo.surname" class="form-control" id="surnname" placeholder="Nazwisko pacjenta"/>
-     </div>
+  <label for="surname" class="col-sm-2 control-label">Nazwisko:</label>
+  <div class="col-sm-10">
+    <input type="text"name="surname" ng-model="doctor.surname" class="form-control" id="surnname" placeholder="Nazwisko doktora" required/>
+  </div>
 </div>
 <div class="form-group">
-    <label for="year" class="col-sm-2 control-label">Pesel:</label>
-      <div class="col-sm-10">
-            <input type="text" ng-model="patient.childInfo.pesel" class="form-control" id="pesel" placeholder="PESEL pacjenta"/>
-     </div>
+  <label for="email"name="email" class="col-sm-2 control-label">Email:</label>
+  <div class="col-sm-10">
+    <input type="text" ng-model="doctor.email" class="form-control" id="email" placeholder="Email doktora" required />
+  </div>
 </div>
 <div class="form-group">
-    <div class="col-sm-offset-2 col-sm-10">
-          <input type="submit" class="btn btn-primary" value="Zapisz"/>
-    </div>
+  <div class="col-sm-offset-2 col-sm-10">
+    <input type="submit" class="btn btn-primary" value="Zapisz"/>
+    <a ui-sref="doctorsList" class="btn btn-primary" role="button">A wroc do listy lekarzy</a>
+  </div>
 </div>

@@ -17,7 +17,10 @@
           <strong>Imie:</strong>{{doctor.firstname}}<br>
           <strong>Naziwsko:</strong>{{doctor.surname}}<br>
           <strong>Email:</strong>{{doctor.email}}<br><br>
-          <p><a href="#" class="btn btn-info " role="button">Edytuj</a> <a class="btn btn-danger" role="button" ng-click="deleteDoctor(doctor)">Usun</a></p>
+          <p>
+          <a ui-sref="editDoctor({id:doctor._id})" class="btn btn-info " role="button">Edytuj</a>
+            <a class="btn btn-danger" role="button" ng-click="deleteDoctor(doctor)">Usun</a>
+          </p>
         </div>
       </div>
     </div>
