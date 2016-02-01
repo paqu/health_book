@@ -58,6 +58,7 @@ Patient.find({}).removeAsync()
     Patient.createAsync({
         _id:'aaaaaaaaaaaaaaaaaaaaaaaa',
         parentId:'a1b2c3d4e5f6a1b2c3d4e5f6',
+        doctorId:'d1b2c3d4e5f6a1b2c3d4e5f6',
         childInfo : {
             surname: 'Nowak',
             firstname:'Julian',
@@ -110,6 +111,7 @@ Patient.find({}).removeAsync()
     }, {
         _id:'aaaaaaaaaaaaaaaaaaaaaaa1',
         parentId:'a1b2c3d4e5f6a1b2c3d4e5f6',
+        doctorId:'e1b2c3d4e5f6a1b2c3d4e5f6',
         childInfo : {
             surname: 'Nowak',
             firstname:'Marek',
@@ -162,6 +164,7 @@ Patient.find({}).removeAsync()
     },{
         _id:'aaaaaaaaaaaaaaaaaaaaaa11',
         parentId:'a1b2c3d4e5f6a1b2c3d4e5f6',
+        doctorId:'d1b2c3d4e5f6a1b2c3d4e5f6',
         childInfo : {
             surname: 'Nowak',
             firstname:'Marek',
@@ -214,6 +217,7 @@ Patient.find({}).removeAsync()
     },{
         _id:'aaaaaaaaaaaaaaaaaaaaaa21',
         parentId:'a1b2c3d4e5f6a1b2c3d4e5f6',
+        doctorId:'e1b2c3d4e5f6a1b2c3d4e5f6',
         childInfo : {
             surname: 'Nowak',
             firstname:'Marek',
@@ -266,6 +270,7 @@ Patient.find({}).removeAsync()
     },{
         _id:'aaaaaaaaaaaaaaaaaaaaaa31',
         parentId:'a1b2c3d4e5f6a1b2c3d4e5f6',
+        doctorId:'d1b2c3d4e5f6a1b2c3d4e5f6',
         childInfo : {
             surname: 'Nowak',
             firstname:'Marek',
@@ -318,6 +323,7 @@ Patient.find({}).removeAsync()
     }, {
         _id:'aaaaaaaaaaaaaaaaaaaaaaa2',
         parentId:'56a7b020ffa37c0c112f322c',
+        doctorId:'e1b2c3d4e5f6a1b2c3d4e5f6',
         childInfo : {
             surname: 'Perka',
             firstname:'Katarzyna',
@@ -370,6 +376,7 @@ Patient.find({}).removeAsync()
     }, {
         _id:'aaaaaaaaaaaaaaaaaaaaaaa3',
         parentId:'56a7b020ffa37c0c112f322c',
+        doctorId:'d1b2c3d4e5f6a1b2c3d4e5f6',
         childInfo : {
             surname: 'Lukasik',
             firstname:'Wiktoria',
@@ -418,6 +425,7 @@ Patient.find({}).removeAsync()
         _id:'aaaaaaaaaaaaaaaaaaaaaaa4',
         //parentId:'56a7b020ffa37c0c112f322c',
         parentId:'a1b2c3d4e5f6a1b2c3d4e5f6',
+        doctorId:'e1b2c3d4e5f6a1b2c3d4e5f6',
         childInfo : {
             surname: 'Sobota',
             firstname:'Robert',
@@ -466,6 +474,7 @@ Patient.find({}).removeAsync()
         _id:'aaaaaaaaaaaaaaaaaaaaaaa5',
         parentId:'a1b2c3d4e5f6a1b2c3d4e5f6',
         //parentId:'56a7b020ffa37c0c112f322c',
+        doctorId:'d1b2c3d4e5f6a1b2c3d4e5f6',
         childInfo : {
             surname: 'Wojcik',
             firstname:'Wojciech',
