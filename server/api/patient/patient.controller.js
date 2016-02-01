@@ -75,6 +75,15 @@ exports.mychildren = function(req, res) {
     .catch(handleError(res));
 };
 
+// Gets a list of Patients asigned to doctor
+exports.mypatients = function(req, res) {
+  Patient.findAsync({'doctorId':req.params.id},
+          'childInfo.surname childInfo.firstname childInfo.pesel'
+          )
+    .then(responseWithResult(res))
+    .catch(handleError(res));
+};
+
 // Gets a single Patient from the DB
 exports.show = function(req, res) {
   Patient.findByIdAsync(req.params.id)
