@@ -6,7 +6,7 @@ public class PrenatalInfo {
     private String motherRhFactor;
     private Boolean isImmuAntyRhDApplied;
     private Boolean isPreventionDuringPregnancy;
-    private Boolean isPreventionAfterChildBrith;
+    private Boolean isPreventionAfterChildBirth;
     private Number pregnancyNumber;
     private Boolean isSingle;
     private Boolean isMultiFetal;
@@ -61,12 +61,12 @@ public class PrenatalInfo {
         this.pregnancyNumber = pregnancyNumber;
     }
 
-    public Boolean getIsPreventionAfterChildBrith() {
-        return isPreventionAfterChildBrith;
+    public Boolean getIsPreventionAfterChildBirth() {
+        return isPreventionAfterChildBirth;
     }
 
-    public void setIsPreventionAfterChildBrith(Boolean isPreventionAfterChildBrith) {
-        this.isPreventionAfterChildBrith = isPreventionAfterChildBrith;
+    public void setIsPreventionAfterChildBirth(Boolean isPreventionAfterChildBirth) {
+        this.isPreventionAfterChildBirth = isPreventionAfterChildBirth;
     }
 
     public Boolean getIsPreventionDuringPregnancy() {

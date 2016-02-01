@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.google.gson.Gson;
 import com.szpileq.android.ksiazeczkazdrowia.Fx;
+import com.szpileq.android.ksiazeczkazdrowia.Info.VisitInfo;
 import com.szpileq.android.ksiazeczkazdrowia.Patient;
 import com.szpileq.android.ksiazeczkazdrowia.R;
 import com.szpileq.android.ksiazeczkazdrowia.ServerRequests.ServerRequestGet;
@@ -28,8 +29,12 @@ public class VisitsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_visits);
 
+        Bundle bundle = getIntent().getExtras();
+        String jsonKidData = bundle.getString("kidInfo");
+
+        Patient kid = new Gson().fromJson(jsonKidData, Patient.class);
+
         ListView listviewVisitsInfo = (ListView) findViewById(R.id.visitsListView);
-        Patient kid = new Patient(); // add to bundle from childActivity to get visits
         VisitsAdapter adbVisits;
         adbVisits = new VisitsAdapter(VisitsActivity.this, 0, kid.getVisitsInfo());
         listviewVisitsInfo.setAdapter(adbVisits);

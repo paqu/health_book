@@ -450,23 +450,10 @@
         android:text="Dziennik wizyt"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:clickable="true"
-        android:onClick="toggle_contents"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="15dp"
         android:layout_gravity="left"/>
-    <!--content to hide/show -->
-    <RelativeLayout
-        android:id="@+id/visitInfoPanel"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#efefef"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp">
-
-
-    </RelativeLayout>
-    <!--    /VISITS INFO    -->
 
 
 </LinearLayout>

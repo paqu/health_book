@@ -4,17 +4,17 @@ package com.szpileq.android.ksiazeczkazdrowia.Info;
  * Created by Szpileq on 2016-01-27.
  */
 public class VisitInfo {
-    private String Date;
+    private String date;
     private String kindOfVisit;
     private String doctorSignature;
     private String _id;
 
     public String getDate() {
-        return Date;
+        return date;
     }
 
     public void setDate(String date) {
-        Date = date;
+        this.date = date;
     }
 
     public String getKindOfVisit() {

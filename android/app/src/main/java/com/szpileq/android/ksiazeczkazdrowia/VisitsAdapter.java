@@ -54,7 +54,7 @@ public class VisitsAdapter extends ArrayAdapter<VisitInfo> {
     public static class ViewHolder {
         public TextView display_date;
         public TextView display_drName;
-        public Button   more_button;
+        public TextView display_kindOfVisit;
 
     }
 
@@ -68,7 +68,7 @@ public class VisitsAdapter extends ArrayAdapter<VisitInfo> {
 
                 holder.display_date = (TextView) vi.findViewById(R.id.visitsListDateText);
                 holder.display_drName = (TextView) vi.findViewById(R.id.visitsListDoctorsName);
-                holder.more_button = (Button) vi.findViewById(R.id.visitsListMoreButton);
+                holder.display_kindOfVisit = (TextView) vi.findViewById(R.id.visitsListKindOfVisitText);
 
                 vi.setTag(holder);
             } else {
@@ -78,12 +78,8 @@ public class VisitsAdapter extends ArrayAdapter<VisitInfo> {
 
             holder.display_date.setText(lVisits.get(position).getDate());
             holder.display_drName.setText(lVisits.get(position).getDoctorSignature());
-            holder.more_button.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
+            holder.display_kindOfVisit.setText(lVisits.get(position).getKindOfVisit());
 
-                }
-            });
 
 
         } catch (Exception e) {

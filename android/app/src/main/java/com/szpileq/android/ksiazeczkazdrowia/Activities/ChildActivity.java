@@ -1,5 +1,6 @@
 package com.szpileq.android.ksiazeczkazdrowia.Activities;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -14,14 +15,15 @@ import com.szpileq.android.ksiazeczkazdrowia.R;
 import com.szpileq.android.ksiazeczkazdrowia.ServerRequests.ServerRequestGet;
 
 import org.apache.http.NameValuePair;
+import org.json.JSONException;
 import org.json.JSONObject;
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 
 public class ChildActivity extends AppCompatActivity {
 
-    RelativeLayout childInfoPanel, familyInfoPanel, prenatalInfoPanel, visitInfoPanel;
+    RelativeLayout childInfoPanel, familyInfoPanel, prenatalInfoPanel;
+    TextView visitsInfoText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +37,7 @@ public class ChildActivity extends AppCompatActivity {
 
         ArrayList params = new ArrayList<NameValuePair>();
         ServerRequestGet getChildDataRequest = new ServerRequestGet();
-        JSONObject jsonKidData = getChildDataRequest.getJSON("http://192.168.1.21:9000/api/patients/"+childID, params, token);
+        final JSONObject jsonKidData = getChildDataRequest.getJSON("http://192.168.0.20:9000/api/patients/"+childID, params, token);
 
         Patient kid = new Gson().fromJson(jsonKidData.toString(), Patient.class);
 
@@ -44,12 +46,10 @@ public class ChildActivity extends AppCompatActivity {
         childInfoPanel = (RelativeLayout) findViewById(R.id.childInfoPanel);
         familyInfoPanel = (RelativeLayout) findViewById(R.id.familyInfoPanel);
         prenatalInfoPanel = (RelativeLayout) findViewById(R.id.prenatalInfoPanel);
-        visitInfoPanel = (RelativeLayout) findViewById(R.id.visitInfoPanel);
 
         childInfoPanel.setVisibility(View.GONE);
         familyInfoPanel.setVisibility(View.GONE);
         prenatalInfoPanel.setVisibility(View.GONE);
-        visitInfoPanel.setVisibility(View.GONE);
 
         /*  filling up the health book    */
 
@@ -75,30 +75,67 @@ public class ChildActivity extends AppCompatActivity {
         TextView childProfileDateText = (TextView) findViewById(R.id.childProfileDateText);
 
         //Child Info
-        childProfileNameText.setText(kid.getChildInfo().getFirstname());
-        childProfileSurnameText.setText(kid.getChildInfo().getSurname());
-        childProfileAddressText.setText(kid.getChildInfo().getAddress());
-        childProfilePlaceOfBirthText.setText(kid.getChildInfo().getPlaceOfBirth());
-        childProfileDateOfBirthText.setText(kid.getChildInfo().getDateOfBirth());
-        childProfilePeselText.setText(kid.getChildInfo().getPesel());
+        if(null != kid.getChildInfo().getFirstname())
+            childProfileNameText.setText(kid.getChildInfo().getFirstname());
+        if(null != kid.getChildInfo().getSurname())
+            childProfileSurnameText.setText(kid.getChildInfo().getSurname());
+        if(null != kid.getChildInfo().getAddress())
+            childProfileAddressText.setText(kid.getChildInfo().getAddress());
+        if(null != kid.getChildInfo().getPlaceOfBirth())
+            childProfilePlaceOfBirthText.setText(kid.getChildInfo().getPlaceOfBirth());
+        if(null != kid.getChildInfo().getDateOfBirth())
+            childProfileDateOfBirthText.setText(kid.getChildInfo().getDateOfBirth());
+        if(null != kid.getChildInfo().getPesel())
+            childProfilePeselText.setText(kid.getChildInfo().getPesel());
 
         //Family info
-        childProfileMotherNameText.setText(kid.getFamilyInfo().getMotherName());
-        childProfileFatherNameText.setText(kid.getFamilyInfo().getFatherName());
-        childProfileContactPhoneText.setText(kid.getFamilyInfo().getContactPhone());
+        if(null != kid.getFamilyInfo()) {
+            if (null != kid.getFamilyInfo().getMotherName())
+                childProfileMotherNameText.setText(kid.getFamilyInfo().getMotherName());
+            if (null != kid.getFamilyInfo().getFatherName())
+                childProfileFatherNameText.setText(kid.getFamilyInfo().getFatherName());
+            if (null != kid.getFamilyInfo().getContactPhone())
+                childProfileContactPhoneText.setText(kid.getFamilyInfo().getContactPhone());
+        }
 
         //Prenatal info
-        childProfileMotherAgeText.setText(kid.getPrenatalInfo().getMotherAge().toString());
-        childProfileBloodGroupText.setText(kid.getPrenatalInfo().getBloodGroup());
-        childProfileMothersRHText.setText(kid.getPrenatalInfo().getMotherRhFactor());
-        childProfileImmuAntyRHDText.setText(kid.getPrenatalInfo().getIsImmuAntyRhDApplied()?"Tak":"Nie");
-        childProfilePregnancyPreventionText.setText(kid.getPrenatalInfo().getIsPreventionDuringPregnancy()?"Tak":"Nie");
-        childProfilePreventionAfterBirthText.setText(kid.getPrenatalInfo().getIsPreventionAfterChildBrith()?"Tak":"Nie");
-        childProfilePregnancyNumberText.setText(kid.getPrenatalInfo().getPregnancyNumber().toString());
-        childProfileIsSingleText.setText(kid.getPrenatalInfo().getIsSingle()?"Tak":"Nie");
-        childProfileIsMultifetalText.setText(kid.getPrenatalInfo().getIsMultiFetal()?"Tak":"Nie");
-        childProfileCaregiverText.setText(kid.getPrenatalInfo().getCaregiver());
-        childProfileDateText.setText(kid.getPrenatalInfo().getDate());
+        if(null != kid.getPrenatalInfo()) {
+            if (null != kid.getPrenatalInfo().getMotherAge())
+                childProfileMotherAgeText.setText(kid.getPrenatalInfo().getMotherAge().toString());
+            if (null != kid.getPrenatalInfo().getBloodGroup())
+                childProfileBloodGroupText.setText(kid.getPrenatalInfo().getBloodGroup());
+            if (null != kid.getPrenatalInfo().getMotherRhFactor())
+                childProfileMothersRHText.setText(kid.getPrenatalInfo().getMotherRhFactor());
+            if (null != kid.getPrenatalInfo().getIsImmuAntyRhDApplied())
+                childProfileImmuAntyRHDText.setText(kid.getPrenatalInfo().getIsImmuAntyRhDApplied() ? "Tak" : "Nie");
+            if (null != kid.getPrenatalInfo().getIsPreventionDuringPregnancy())
+                childProfilePregnancyPreventionText.setText(kid.getPrenatalInfo().getIsPreventionDuringPregnancy() ? "Tak" : "Nie");
+            if (null != kid.getPrenatalInfo().getIsPreventionAfterChildBirth())
+                childProfilePreventionAfterBirthText.setText(kid.getPrenatalInfo().getIsPreventionAfterChildBirth() ? "Tak" : "Nie");
+            if (null != kid.getPrenatalInfo().getPregnancyNumber())
+                childProfilePregnancyNumberText.setText(kid.getPrenatalInfo().getPregnancyNumber().toString());
+            if (null != kid.getPrenatalInfo().getIsSingle())
+                childProfileIsSingleText.setText(kid.getPrenatalInfo().getIsSingle() ? "Tak" : "Nie");
+            if (null != kid.getPrenatalInfo().getIsMultiFetal())
+                childProfileIsMultifetalText.setText(kid.getPrenatalInfo().getIsMultiFetal() ? "Tak" : "Nie");
+            if (null != kid.getPrenatalInfo().getCaregiver())
+                childProfileCaregiverText.setText(kid.getPrenatalInfo().getCaregiver());
+            if (null != kid.getPrenatalInfo().getDate())
+                childProfileDateText.setText(kid.getPrenatalInfo().getDate());
+        }
+
+        visitsInfoText = (TextView) findViewById(R.id.visitInfoPanelText);
+        visitsInfoText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v){
+                Bundle bundle = new Bundle();
+                bundle.putString("kidInfo", jsonKidData.toString());
+                Intent i = new Intent(ChildActivity.this, VisitsActivity.class);
+                i.putExtras(bundle);
+                startActivity(i);
+            }
+        });
+
     }
 
     /**
@@ -115,9 +152,6 @@ public class ChildActivity extends AppCompatActivity {
                 break;
             case R.id.prenatalInfoPanelText:
                 panel = prenatalInfoPanel;
-                break;
-            case R.id.visitInfoPanelText:
-                panel = visitInfoPanel;
                 break;
         }
 
