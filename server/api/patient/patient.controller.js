@@ -77,9 +77,10 @@ exports.mychildren = function(req, res) {
 };
 // Gets a list of Patients asigned to User
 exports.mychildren_ = function(req, res) {
-    var url_parts = url.parse(req.url,true);
-    var query = url_parts.query;
-    console.log(query.id);
+  var url_parts = url.parse(req.url,true);
+  var query = url_parts.query;
+  console.log(query.id);
+
   Patient.findAsync({'parentId':query.id},
           'childInfo.surname childInfo.firstname childInfo.pesel'
           )
