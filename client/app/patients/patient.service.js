@@ -1,10 +1,10 @@
 'use strict';
 
 (function() {
-    
+   
 function PatientResource($resource) {
-    return $resource('/api/patients/:id',{
-        id: '@_id' 
+    return $resource('/api/patients/:controller/:userId',{
+        userId:'@_id'
     },
     {
         update:{
@@ -22,6 +22,13 @@ function PatientResource($resource) {
         },
         remove:{
             method:'DELETE'
+        },
+        getChildrenList:{
+            method: 'GET',
+            params: {
+                controller: 'mychildren_',
+            },
+            isArray:true
         }
     });
 }
