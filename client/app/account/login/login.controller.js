@@ -7,9 +7,10 @@ class LoginController {
   submitted = false;
   //end-non-standard
 
-  constructor(Auth, $state) {
+  constructor(Auth, $state,$cookies) {
     this.Auth = Auth;
     this.$state = $state;
+    this.$cookies = $cookies;
   }
 
   login(form) {
@@ -22,7 +23,7 @@ class LoginController {
       })
       .then((user) => {
         // Logged in, redirect to home
-        console.log(user);
+        this.$cookies.put('userId',user._id);
         if ('admin' == user.role)
             this.$state.go('doctorsList');
         else if ('user' == user.role)
