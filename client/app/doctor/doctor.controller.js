@@ -1,7 +1,8 @@
 'use strict';
 
 angular.module('ksiazeczkaZdrowiaApp')
-  .controller('DoctorCtrl', function ($scope,Doctor) {
+  .controller('DoctorCtrl', function ($scope,Doctor,User) {
+    $scope.me = User.get();
     $scope.doctors  = Doctor.query();
 
     $scope.deleteDoctor = function (doctor){
