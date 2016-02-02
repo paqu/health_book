@@ -6,6 +6,7 @@ var controller = require('./patient.controller');
 var router = express.Router();
 
 router.get('/', controller.index);
+router.get('/mychildren_',controller.mychildren_);
 router.get('/:id', controller.show);
 router.get('/mychildren/:id',controller.mychildren);
 router.get('/mypatients/:id',controller.mypatients);
