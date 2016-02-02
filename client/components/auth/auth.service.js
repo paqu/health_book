@@ -181,6 +181,17 @@ function AuthService($location, $http, $cookies, $q, appConfig, Util, User) {
       return Auth.hasRole
         .apply(Auth, [].concat.apply(['user'], arguments));
     },
+     /**
+      * Check if a user is an parent
+      *   (synchronous|asynchronous)
+      *
+      * @param  {Function|*} callback - optional, function(is)
+      * @return {Bool|Promise}
+      */
+    isDoctor: function() {
+      return Auth.hasRole
+        .apply(Auth, [].concat.apply(['doctor'], arguments));
+    },
     /**
      * Get auth token
      *
