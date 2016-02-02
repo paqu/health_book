@@ -12,6 +12,7 @@
     <div collapse="nav.isCollapsed" class="navbar-collapse collapse " id="navbar-main">
       <ul class="nav navbar-nav">
         <li ng-show="nav.isAdmin()" ui-sref-active="active"><a ui-sref="doctorsList">Admin</a></li>
+        <li ng-show="nav.isAdmin()" ui-sref-active="active"><a ui-sref=""><span class="glyphicon glyphicon-plus"></span>Dodaj lekarza</a></li>
         <li ng-show="nav.isParent() && !nav.isAdmin()" ui-sref-active="active"><a ui-sref="parent">Rodzic</a></li>
         <li ng-show="nav.isParent() && !nav.isAdmin()" ui-sref-active="active"><a ui-sref="#"><span class="glyphicon glyphicon-plus"></span>Dodaj dziecko</a></li>
         <li ng-show="nav.isParent() && !nav.isAdmin()" ui-sref-active="active"><a ui-sref="myChildren({id:nav.getCurrentUser()._id})">Wyswietl dzieci</a></li>
