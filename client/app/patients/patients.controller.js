@@ -9,6 +9,16 @@ angular.module('ksiazeczkaZdrowiaApp')
         $scope.patients.splice($scope.patients.indexOf(patient),1);
     }
   })
+  .controller('MyChildrenCtrl', function ($scope,$state,$cookies, $stateParams,User, Patient) {
+    var userId = $cookies.get('userId');
+    $stateParams.id = userId;
+    $scope.patients = Patient.getChildrenList({id: $stateParams.id});
+
+    $scope.deletePatient = function (patient){
+        Patient.remove({id: patient._id});
+        $scope.patients.splice($scope.patients.indexOf(patient),1);
+    }
+  })
   .controller('PatientViewCtrl',function ($scope, $state, $stateParams, Patient) {
     $scope.patient = Patient.get({id: $stateParams.id});
 
