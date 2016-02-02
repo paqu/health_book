@@ -9,9 +9,12 @@
       </button>
       <a  class="navbar-brand">e-Ksiazeczka zdrowia</a>
     </div>
-    <div collapse="nav.isCollapsed" class="navbar-collapse collapse" id="navbar-main">
+    <div collapse="nav.isCollapsed" class="navbar-collapse collapse " id="navbar-main">
       <ul class="nav navbar-nav">
         <li ng-show="nav.isAdmin()" ui-sref-active="active"><a ui-sref="doctorsList">Admin</a></li>
+        <li ng-show="nav.isParent() && !nav.isAdmin()" ui-sref-active="active"><a ui-sref="parent">Rodzic</a></li>
+        <li ng-show="nav.isParent() && !nav.isAdmin()" ui-sref-active="active"><a ui-sref="#"><span class="glyphicon glyphicon-plus"></span> Dodaj dziecko</a></li>
+        <li ng-show="nav.isParent() && !nav.isAdmin()" ui-sref-active="active"><a ui-sref="#">Wyswietl dzieci</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li ng-hide="nav.isLoggedIn()" ui-sref-active="active"><a ui-sref="signup">Rejestracja</a></li>
