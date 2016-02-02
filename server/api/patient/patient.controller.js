@@ -10,6 +10,7 @@
 'use strict';
 
 var _ = require('lodash');
+var url = require('url');
 var Patient = require('./patient.model');
 
 function handleError(res, statusCode) {
@@ -69,6 +70,17 @@ exports.index = function(req, res) {
 // Gets a list of Patients asigned to User
 exports.mychildren = function(req, res) {
   Patient.findAsync({'parentId':req.params.id},
+          'childInfo.surname childInfo.firstname childInfo.pesel'
+          )
+    .then(responseWithResult(res))
+    .catch(handleError(res));
+};
+// Gets a list of Patients asigned to User
+exports.mychildren_ = function(req, res) {
+    var url_parts = url.parse(req.url,true);
+    var query = url_parts.query;
+    console.log(query.id);
+  Patient.findAsync({'parentId':query.id},
           'childInfo.surname childInfo.firstname childInfo.pesel'
           )
     .then(responseWithResult(res))
