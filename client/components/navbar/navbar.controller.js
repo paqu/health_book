@@ -14,6 +14,7 @@ class NavbarController {
     this.isLoggedIn = Auth.isLoggedIn;
     this.isAdmin = Auth.isAdmin;
     this.isParent = Auth.isParent;
+    this.isDoctor = Auth.isDoctor;
     this.getCurrentUser = Auth.getCurrentUser;
   }
 }
