@@ -7,9 +7,9 @@ var router = express.Router();
 
 router.get('/', controller.index);
 router.get('/mychildren_',controller.mychildren_);
+router.get('/mypatients',controller.mypatients);
 router.get('/:id', controller.show);
 router.get('/mychildren/:id',controller.mychildren);
-router.get('/mypatients/:id',controller.mypatients);
 router.post('/', controller.create);
 router.put('/:id', controller.update);
 router.patch('/:id', controller.update);
