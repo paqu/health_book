@@ -13,6 +13,7 @@ User.find({}).removeAsync()
     User.createAsync({
       _id:'a1b2c3d4e5f6a1b2c3d4e5f6',
       provider: 'local',
+      role: 'user',
       firstname:'Julian',
       surname: 'Test User 1',
       email: 'test1@example.com',
@@ -20,6 +21,7 @@ User.find({}).removeAsync()
     }, {
       _id:'b1b2c3d4e5f6a1b2c3d4e5f6',
       provider: 'local',
+      role: 'user',
       firstname:'Julian',
       surname: 'Test User 2',
       email: 'test2@example.com',
@@ -27,6 +29,7 @@ User.find({}).removeAsync()
     },{
       _id:'01b2c3d4e5f6a1b2c3d4e5f6',
       provider: 'local',
+      role: 'user',
       firstname:'Andrzej',
       surname: 'Test User 3',
       email: 'test3@example.com',
