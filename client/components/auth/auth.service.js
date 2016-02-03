@@ -59,7 +59,8 @@ function AuthService($location, $http, $cookies, $q, appConfig, Util, User) {
     createUser: function(user, callback) {
       return User.save(user,
         function(data) {
-          $cookies.put('token', data.token);
+          if (!$cookies.get('token'))
+            $cookies.put('token', data.token);
           currentUser = User.get();
           return safeCb(callback)(null, user);
         },
