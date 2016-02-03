@@ -25,6 +25,7 @@
 <div class="form-group">
   <div class="col-sm-offset-2 col-sm-10">
     <input type="submit" class="btn btn-primary" value="Zapisz"/>
-    <a ui-sref="doctorsList" class="btn btn-primary" role="button">Wroc do listy lekarzy</a>
+    <a ng-show="isAdmin()"ui-sref="doctorsList" class="btn btn-primary" role="button">Wroc</a>
+    <a ng-show="isDoctor() && !isAdmin()"ui-sref="doctor" class="btn btn-primary" role="button">Wroc</a>
   </div>
 </div>
