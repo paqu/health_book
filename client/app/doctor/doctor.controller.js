@@ -26,4 +26,36 @@ angular.module('ksiazeczkaZdrowiaApp')
         else $state.go('doctor');
     }
   })
+  .controller('DoctorNewCtrl',function ($scope, $state, Doctor,Auth) {
+    $scope.doctor = {};
+    $scope.isAdmin = Auth.isAdmin;
+    $scope.createUser = Auth.createUser;
+    $scope.addButton = true;
+    $scope.errors = {};
+
+    $scope.addDoctor = function (){
+        $scope.createUser({
+            firstname:$scope.doctor.firstname,
+            surname:$scope.doctor.surname,
+            role:'doctor',
+            email:$scope.doctor.email,
+            password:'doctor',
+            description:$scope.doctor.description
+        })
+        .then(() => {
+            console.log("JESTEM TUTAJ");
+            $state.go('doctorsList');
+        })
+        .catch(err => {
+            err = err.data;
+            $scope.errors = {};
+
+            // Update validity of form fields that match the mongoose errors
+            angular.forEach(err.errors, (error, field) => {
+                form[field].$setValidity('mongoose', false);
+                $scope.errors[field] = error.message;
+            });
+        });
+    }
+  })
 ;
