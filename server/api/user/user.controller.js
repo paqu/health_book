@@ -47,7 +47,6 @@ exports.index = function(req, res) {
 exports.create = function(req, res, next) {
   var newUser = new User(req.body);
   newUser.provider = 'local';
-  newUser.role = 'user';
   newUser.saveAsync()
     .spread(function(user) {
       var token = jwt.sign({ _id: user._id }, config.secrets.session, {
@@ -57,7 +56,6 @@ exports.create = function(req, res, next) {
     })
     .catch(validationError(res));
 };
-
 /**
  * Get a single user
  */
