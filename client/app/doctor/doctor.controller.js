@@ -10,17 +10,20 @@ angular.module('ksiazeczkaZdrowiaApp')
         $scope.doctors.splice($scope.doctors.indexOf(doctor),1);
     }
   })
-  .controller('DoctorEditCtrl',function ($scope, $state, $stateParams, Doctor, Auth) {
+  .controller('DoctorEditCtrl',function ($scope, $state, $stateParams, Doctor, Auth, User) {
     $scope.doctor = Doctor.get({id: $stateParams.id});
     $scope.isAdmin = Auth.isAdmin;
     $scope.isDoctor= Auth.isDoctor;
+    $scope.me = User.get();
 
     $scope.editDoctor = function (){
         var firstname = $scope.doctor.firstname;
         var surname = $scope.doctor.surname;
         var email = $scope.doctor.email;
         Doctor.update({id: $stateParams.id},{firstname:firstname,surname:surname,email:email});
-        $state.go('doctorsList');
+        if ($scope.me.role =='admin')
+            $state.go('doctorsList');
+        else $state.go('doctor');
     }
   })
 ;
