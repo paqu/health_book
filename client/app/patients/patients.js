@@ -14,6 +14,11 @@ angular.module('ksiazeczkaZdrowiaApp')
         templateUrl: 'app/patients/templates/parent-children-list.html',
         controller: 'MyChildrenCtrl'
       })
+      .state('myPatients', {
+        url: '/myPatients',
+        templateUrl: 'app/patients/templates/doctor-patients-list.html',
+        controller: 'MyPatientsCtrl'
+      })
       .state('newPatient', {
         url: '/patients/new',
         templateUrl: 'app/patients/templates/patient-new.html',
