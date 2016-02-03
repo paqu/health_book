@@ -29,7 +29,15 @@ function PatientResource($resource) {
                 controller: 'mychildren_',
             },
             isArray:true
+        },
+        getPatientsList:{
+            method: 'GET',
+            params: {
+                controller: 'mypatients',
+            },
+            isArray:true
         }
+
     });
 }
 
