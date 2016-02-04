@@ -7,14 +7,24 @@
     </div>
     <div class="col-sm-12">
       <form class="form" name="form" ng-submit="vm.register(form)" novalidate>
+        <div class="form-group" ng-class="{ 'has-success': form.firstname.$valid && vm.submitted,
+                                            'has-error': form.firstname.$invalid && vm.submitted }">
+          <label>Imie:</label>
 
-        <div class="form-group" ng-class="{ 'has-success': form.name.$valid && vm.submitted,
-                                            'has-error': form.name.$invalid && vm.submitted }">
+          <input type="text" name="firstname" class="form-control" ng-model="vm.user.firstname"
+                 required/>
+          <p class="help-block" ng-show="form.firstname.$error.required && vm.submitted">
+           Imie jest wymagane. 
+          </p>
+        </div>
+
+        <div class="form-group" ng-class="{ 'has-success': form.surname.$valid && vm.submitted,
+                                            'has-error': form.surname.$invalid && vm.submitted }">
           <label>Nazwisko</label>
 
-          <input type="text" name="name" class="form-control" ng-model="vm.user.name"
+          <input type="text" name="surname" class="form-control" ng-model="vm.user.surnaname"
                  required/>
-          <p class="help-block" ng-show="form.name.$error.required && vm.submitted">
+          <p class="help-block" ng-show="form.surnname.$error.required && vm.submitted">
             Nazwisko jest wymagane.
           </p>
         </div>
@@ -62,7 +72,7 @@
                  ng-minlength="3" required/>
           <p class="help-block"
              ng-show="form.confirmPassword.$error.match && vm.submitted">
-           Hasla musza sie zgadzac.
+           Podane hasla nie pasuja.
           </p>
         </div>
 

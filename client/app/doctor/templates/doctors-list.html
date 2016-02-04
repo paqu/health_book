@@ -1,0 +1,28 @@
+<navbar></navbar>
+<div class="container">
+  <h3>Panel administratora </h3>
+  <ul class="nav nav-pills">
+      <li role="presentation" class="active"><a ui-sref="doctorsList">Lekarze</a></li>
+      <li role="presentation"><a ui-sref="parentsList">Rodzice</a></li>
+      <li role="presentation"><a ui-sref="patientsList">Pacjenci</a></li>
+  </ul>
+  <br>
+  <div class="col-sm-6 col-md-4" ng-show="doctors.length < 1"> Brak lekarzy w  systemie.</div>
+  <div class="row">
+    <div class="col-sm-6 col-md-4" ng-hide="doctors.length <1"  ng-repeat="doctor in doctors">
+      <div class="thumbnail">
+        <img src="assets/images/profile.png" alt="">
+        <div class="caption">
+          <strong>Id:</strong>{{doctor._id}}<br>
+          <strong>Imie:</strong>{{doctor.firstname}}<br>
+          <strong>Naziwsko:</strong>{{doctor.surname}}<br>
+          <strong>Email:</strong>{{doctor.email}}<br><br>
+          <p>
+          <a ui-sref="editDoctor({id:doctor._id})" class="btn btn-info " role="button">Edytuj</a>
+            <a class="btn btn-danger" role="button" ng-click="deleteDoctor(doctor)">Usun</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

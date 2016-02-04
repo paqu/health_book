@@ -1,0 +1,31 @@
+<navbar></navbar>
+<div class="container">
+  <h3>Panel administratora </h3>
+  <ul class="nav nav-pills">
+      <li role="presentation"><a ui-sref="doctorsList">Lekarze</a></li>
+      <li role="presentation" class="active"><a ui-sref="parentsList">Rodzice</a></li>
+      <li role="presentation"><a  ui-sref="patientsList">Pacjenci</a></li>
+  </ul>
+  <br>
+  <div class="col-sm-6 col-md-4" ng-show="parents.length < 1"> Brak rodzicow w systemie.</div>
+  <div class="row">
+    <table class="table" ng-hide="parents.length < 1">
+      <thead>
+        <th class="text-center">Imie</th>
+        <th class="text-center">Nazwisko</th>
+        <th class="text-center">E-mail</th>
+        <th></th>
+        <th></th>
+      </thead>
+      <tbody>
+        <tr ng-repeat="parent in parents">
+          <td class="text-center">{{parent.firstname}}</td>
+          <td class="text-center">{{parent.surname}}</td>
+          <td class="text-center">{{parent.email}}</td>
+          <td class="text-right"><a ui-sref="editParent({id:parent._id})" class="btn btn-info"  class="btn btn-default" role="button">Edytuj </a></td>
+          <td class="text-center"><a class="btn btn-danger" ng-click="deleteParent(parent)">Usun</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

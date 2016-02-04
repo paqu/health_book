@@ -5,11 +5,13 @@ var mongoose = require('bluebird').promisifyAll(require('mongoose'));
 var Schema = mongoose.Schema;
 
 var UserSchema = new Schema({
-  name: String,
+  firstname: String,
+  surname: String,
   email: {
     type: String,
     lowercase: true
   },
+  description:String,
   role: {
     type: String,
     default: 'user'

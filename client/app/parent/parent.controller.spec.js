@@ -1,16 +1,16 @@
 'use strict';
 
-describe('Controller: UserCtrl', function () {
+describe('Controller: ParentCtrl', function () {
 
   // load the controller's module
   beforeEach(module('ksiazeczkaZdrowiaApp'));
 
-  var UserCtrl, scope;
+  var ParentCtrl, scope;
 
   // Initialize the controller and a mock scope
   beforeEach(inject(function ($controller, $rootScope) {
     scope = $rootScope.$new();
-    UserCtrl = $controller('UserCtrl', {
+    ParentCtrl = $controller('ParentCtrl', {
       $scope: scope
     });
   }));

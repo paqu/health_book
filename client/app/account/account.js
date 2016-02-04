@@ -4,7 +4,7 @@ angular.module('ksiazeczkaZdrowiaApp')
   .config(function($stateProvider) {
     $stateProvider
       .state('login', {
-        url: '/login',
+        url: '/',
         templateUrl: 'app/account/login/login.html',
         controller: 'LoginController',
         controllerAs: 'vm'
@@ -16,9 +16,9 @@ angular.module('ksiazeczkaZdrowiaApp')
         controller: function($state, Auth) {
           var referrer = $state.params.referrer ||
                           $state.current.referrer ||
-                          'main';
+                          'login';
           Auth.logout();
-          $state.go(referrer);
+          $state.go('login');
         }
       })
       .state('signup', {

@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="col-md-offset-2 col-md-10">
+<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+
+  <div class="panel panel-default" ng-repeat="doctor in doctors">
+    <div class="panel-heading" role="tab" id="docotr._id">
+      <h4 class="panel-title"><a role="button" 
+                                 data-toggle="collapse" 
+                                 data-parent="#accordion" 
+                                 href="#collapse{{doctor._id}}" 
+                                 aria-controls="collapse{{doctor._id}}">{{doctor.firstname}}{{doctor.surname}}</a></h4>
+    </div>
+    <div id="collapse{{doctor._id}}" ng-class='{in:$last}'class="panel-collapse collapse" role="tabpanel" aria-labelledby="doctor._id">
+      <div class="panel-body">
+        <div class="container">
+          <div class="row">
+            <div class="col-xs-12 col-sm-3"><img src="assets/images/profile.png"></div>
+            <div class="col-sm-offset-2 col-md-offset-1 col-sm-5 col-xs-12">{{doctor.description}}<p><button class="btn btn-default  pull-right"type="button" ng-click="select(doctor)"> Wybierz</button></p></div>
+
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</div>

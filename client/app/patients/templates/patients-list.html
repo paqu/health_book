@@ -1,0 +1,28 @@
+<navbar></navbar>
+<div class="container">
+  <h3>Panel administratora </h3>
+  <ul class="nav nav-pills">
+      <li role="presentation"><a ui-sref="doctorsList">Lekarze</a></li>
+      <li role="presentation"><a ui-sref="parentsList">Rodzice</a></li>
+      <li role="presentation" class="active"><a  ui-sref="patientsList">Pacjenci</a></li>
+  </ul>
+  <br>
+  <div class="col-sm-6 col-md-4" ng-show="patients.length < 1"> Brak pacjentow w systemie.</div>
+  <table class="table" ng-hide="patients.length < 1">
+    <thead>
+      <th class="text-center">Imie</th>
+      <th class="text-center">Nazwisko</th>
+      <th class="text-center">PESEL</th>
+      <th></th>
+    </thead>
+    <tbody>
+      <tr ng-repeat="patient in patients">
+        <td class="text-center">{{patient.childInfo.firstname}}</td>
+        <td class="text-center">{{patient.childInfo.surname}}</td>
+        <td class="text-center">{{patient.childInfo.pesel}}</td>
+        <td class="text-right"><a class="btn btn-info" ui-sref="viewPatient({id:patient._id})" class="btn btn-default" role="button"> Pokaz ksiazeczke pacjenta</a></td>
+        <td class="text-center"><a class="btn btn-danger" ng-click="deletePatient(patient)">Usun</a></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

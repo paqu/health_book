@@ -10,6 +10,7 @@
 'use strict';
 
 var _ = require('lodash');
+var url = require('url');
 var Patient = require('./patient.model');
 
 function handleError(res, statusCode) {
@@ -66,6 +67,23 @@ exports.index = function(req, res) {
     .catch(handleError(res));
 };
 
+// Gets a list of Patients asigned to User
+exports.mychildren = function(req, res) {
+  Patient.findAsync({'parentId':req.params.id},
+          'childInfo.surname childInfo.firstname childInfo.pesel'
+          )
+    .then(responseWithResult(res))
+    .catch(handleError(res));
+};
+// Gets a list of Patients asigned to doctor
+exports.mypatients = function(req, res) {
+  Patient.findAsync({'doctorId':req.params.id},
+          'childInfo.surname childInfo.firstname childInfo.pesel'
+          )
+    .then(responseWithResult(res))
+    .catch(handleError(res));
+};
+
 // Gets a single Patient from the DB
 exports.show = function(req, res) {
   Patient.findByIdAsync(req.params.id)
@@ -83,6 +101,18 @@ exports.create = function(req, res) {
 
 // Updates an existing Patient in the DB
 exports.update = function(req, res) {
+    var userId = req.params.id;
+    var visits = req.body.visitsInfo;
+    Patient.findByIdAsync(userId)
+        .then(function(patient) {
+            patient.visitsInfo = visits;
+            return patient.saveAsync()
+                .then(function() {
+                    res.status(204).end();
+                })
+            return res.status(403).end();
+        });
+    /*
   if (req.body._id) {
     delete req.body._id;
   }
@@ -91,6 +121,7 @@ exports.update = function(req, res) {
     .then(saveUpdates(req.body))
     .then(responseWithResult(res))
     .catch(handleError(res));
+    */
 };
 
 // Deletes a Patient from the DB

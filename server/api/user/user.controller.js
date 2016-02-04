@@ -5,6 +5,9 @@ import passport from 'passport';
 import config from '../../config/environment';
 import jwt from 'jsonwebtoken';
 
+
+
+
 function validationError(res, statusCode) {
   statusCode = statusCode || 422;
   return function(err) {
@@ -44,7 +47,6 @@ exports.index = function(req, res) {
 exports.create = function(req, res, next) {
   var newUser = new User(req.body);
   newUser.provider = 'local';
-  newUser.role = 'user';
   newUser.saveAsync()
     .spread(function(user) {
       var token = jwt.sign({ _id: user._id }, config.secrets.session, {
@@ -54,19 +56,18 @@ exports.create = function(req, res, next) {
     })
     .catch(validationError(res));
 };
-
 /**
  * Get a single user
  */
 exports.show = function(req, res, next) {
   var userId = req.params.id;
 
-  User.findByIdAsync(userId)
+  User.findByIdAsync(userId,"-salt -password")
     .then(function(user) {
       if (!user) {
         return res.status(404).end();
       }
-      res.json(user.profile);
+      res.json(user);
     })
     .catch(function(err) {
       return next(err);
@@ -108,6 +109,24 @@ exports.changePassword = function(req, res, next) {
     });
 };
 
+exports.changeData = function(req, res, next) {
+  var userId = req.params.id;
+  var firstname = String(req.body.firstname);
+  var surname = String(req.body.surname);
+  var email = String(req.body.email);
+  User.findByIdAsync(userId)
+    .then(function(user) {
+        user.firstname = firstname;
+        user.surname = surname;
+        user.email = email;
+        return user.saveAsync()
+          .then(function() {
+            res.status(204).end();
+          })
+          .catch(validationError(res));
+        return res.status(403).end();
+    });
+};
 /**
  * Get my info
  */
@@ -126,6 +145,26 @@ exports.me = function(req, res, next) {
     });
 };
 
+/**
+ * Get list of doctors
+ */
+exports.doctors = function(req, res) {
+  User.findAsync({'role':'doctor'}, '-salt -password')
+    .then(function(doctors) {
+      res.status(200).json(doctors);
+    })
+    .catch(handleError(res));
+};
+/**
+ * Get list of parents
+ */
+exports.parents = function(req, res) {
+  User.findAsync({'role':'user'}, '-salt -password')
+    .then(function(doctors) {
+      res.status(200).json(doctors);
+    })
+    .catch(handleError(res));
+};
 /**
  * Authentication callback
  */

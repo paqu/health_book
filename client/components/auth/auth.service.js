@@ -59,7 +59,8 @@ function AuthService($location, $http, $cookies, $q, appConfig, Util, User) {
     createUser: function(user, callback) {
       return User.save(user,
         function(data) {
-          $cookies.put('token', data.token);
+          if (!$cookies.get('token'))
+            $cookies.put('token', data.token);
           currentUser = User.get();
           return safeCb(callback)(null, user);
         },
@@ -170,6 +171,28 @@ function AuthService($location, $http, $cookies, $q, appConfig, Util, User) {
         .apply(Auth, [].concat.apply(['admin'], arguments));
     },
 
+     /**
+      * Check if a user is an parent
+      *   (synchronous|asynchronous)
+      *
+      * @param  {Function|*} callback - optional, function(is)
+      * @return {Bool|Promise}
+      */
+    isParent: function() {
+      return Auth.hasRole
+        .apply(Auth, [].concat.apply(['user'], arguments));
+    },
+     /**
+      * Check if a user is an parent
+      *   (synchronous|asynchronous)
+      *
+      * @param  {Function|*} callback - optional, function(is)
+      * @return {Bool|Promise}
+      */
+    isDoctor: function() {
+      return Auth.hasRole
+        .apply(Auth, [].concat.apply(['doctor'], arguments));
+    },
     /**
      * Get auth token
      *
