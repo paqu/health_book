@@ -101,6 +101,18 @@ exports.create = function(req, res) {
 
 // Updates an existing Patient in the DB
 exports.update = function(req, res) {
+    var userId = req.params.id;
+    var visits = req.body.visitsInfo;
+    Patient.findByIdAsync(userId)
+        .then(function(patient) {
+            patient.visitsInfo = visits;
+            return patient.saveAsync()
+                .then(function() {
+                    res.status(204).end();
+                })
+            return res.status(403).end();
+        });
+    /*
   if (req.body._id) {
     delete req.body._id;
   }
@@ -109,6 +121,7 @@ exports.update = function(req, res) {
     .then(saveUpdates(req.body))
     .then(responseWithResult(res))
     .catch(handleError(res));
+    */
 };
 
 // Deletes a Patient from the DB
