@@ -79,7 +79,6 @@ exports.mychildren = function(req, res) {
 exports.mychildren_ = function(req, res) {
   var url_parts = url.parse(req.url,true);
   var query = url_parts.query;
-  console.log(query.id);
 
   Patient.findAsync({'parentId':query.id},
           'childInfo.surname childInfo.firstname childInfo.pesel'
@@ -92,7 +91,6 @@ exports.mychildren_ = function(req, res) {
 exports.mypatients = function(req, res) {
   var url_parts = url.parse(req.url,true);
   var query = url_parts.query;
-  console.log(query.id);
 
   Patient.findAsync({'doctorId':query.id},
           'childInfo.surname childInfo.firstname childInfo.pesel'
@@ -130,7 +128,9 @@ exports.update = function(req, res) {
 
 // Deletes a Patient from the DB
 exports.destroy = function(req, res) {
-  Patient.findByIdAsync(req.params.id)
+  var url_parts = url.parse(req.url,true);
+  var query = url_parts.query;
+  Patient.findByIdAsync(query.id)
     .then(handleEntityNotFound(res))
     .then(removeEntity(res))
     .catch(handleError(res));
