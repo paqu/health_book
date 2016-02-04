@@ -24,6 +24,33 @@
                 </tr>
               </tbody>
             </table>
+            <button ng-show="!isAdmin() && !isParent()"type="button" class="btn btn-primary  pull-right" data-toggle="modal" data-target="#myModal">
+              Dodaj wizyte
+            </button>
+            <!-- Modal -->
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Dodaj wizyte</h4>
+                  </div>
+                  <div class="modal-body">
+                    <p><b>Data:</b> {{date}}</p>
+                    <p><b> Rodzaj wizyty: </b>
+                    <select ng-model="newVisit.kindOfVisit">
+                      <option value="Szczepienie">Szczepienie</option>
+                      <option value="Szczepienie">Bilans</option>
+                    </select></p>
+                    <p><b>Lekarz:</b> {{me.firstname}} {{me.surname}}</p>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-default"  data-dismiss="modal">Anuluj</button>
+                    <button type="button" ng-click="addNewVisit(newVisit)" data-dismiss="modal" class="btn btn-primary">Zapisz</button>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -240,9 +267,9 @@
           <a href="#ch17" class="list-group-item"style="padding:5px">XVII. Zaopatrzenie w sprzet i wyroby medyczne</a>
           <a href="#ch18" class="list-group-item"style="padding:5px">XVIII. Zwolnienia z zajec sportowych</a>
           <a href="#ch19" class="list-group-item"style="padding:5px">XIX. Uwagi</a><br>
-          <a ng-show="isAdmin()"style="float:right" ui-sref="patientsList" >Wroc do listy pacjentow </a>
-          <a ng-show="isParent() && !isAdmin()"style="float:right" ui-sref="myChildren" >Wroc do listy dzieci</a>
-          <a ng-show="!isAdmin() && !isParent()"style="float:right" ui-sref="myPatients" >Wroc do listy pacjentow </a>
+          <a ng-show="isAdmin()"class="pull-right"ui-sref="patientsList" >Wroc do listy pacjentow </a>
+          <a ng-show="isParent() && !isAdmin()"class="pull-right"ui-sref="myChildren" >Wroc do listy dzieci</a>
+          <a ng-show="!isAdmin() && !isParent()"class="pull-right" ui-sref="myPatients" >Wroc do listy pacjentow </a>
         </div>
     </div>
   </div>
