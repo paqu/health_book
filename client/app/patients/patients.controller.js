@@ -45,17 +45,17 @@ angular.module('ksiazeczkaZdrowiaApp')
         parentId:'',
         doctorId:'',
         childInfo:{
-            surname:'a',
-            firstname:'b',
-            dateOfBirth:'c',
-            placeOfBirth:'d',
-            address:'e',
+            surname:'',
+            firstname:'',
+            dateOfBirth:'',
+            placeOfBirth:'',
+            address:'',
             pesel:0
         },
         familyInfo:{
-            motherName:'aa',
-            fatherName:'aa',
-            contactPhone:'aa'
+            motherName:'',
+            fatherName:'',
+            contactPhone:''
         }
     };
 
