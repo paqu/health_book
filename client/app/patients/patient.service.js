@@ -3,9 +3,7 @@
 (function() {
    
 function PatientResource($resource) {
-    return $resource('/api/patients/:controller/:userId',{
-        userId:'@_id'
-    },
+    return $resource('/api/patients/:controller/:id',null,
     {
         update:{
             method:'PUT',
@@ -26,7 +24,7 @@ function PatientResource($resource) {
         getChildrenList:{
             method: 'GET',
             params: {
-                controller: 'mychildren_',
+                controller: 'mychildren',
             },
             isArray:true
         },

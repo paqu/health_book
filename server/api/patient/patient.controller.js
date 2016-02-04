@@ -75,24 +75,9 @@ exports.mychildren = function(req, res) {
     .then(responseWithResult(res))
     .catch(handleError(res));
 };
-// Gets a list of Patients asigned to User
-exports.mychildren_ = function(req, res) {
-  var url_parts = url.parse(req.url,true);
-  var query = url_parts.query;
-
-  Patient.findAsync({'parentId':query.id},
-          'childInfo.surname childInfo.firstname childInfo.pesel'
-          )
-    .then(responseWithResult(res))
-    .catch(handleError(res));
-};
-
 // Gets a list of Patients asigned to doctor
 exports.mypatients = function(req, res) {
-  var url_parts = url.parse(req.url,true);
-  var query = url_parts.query;
-
-  Patient.findAsync({'doctorId':query.id},
+  Patient.findAsync({'doctorId':req.params.id},
           'childInfo.surname childInfo.firstname childInfo.pesel'
           )
     .then(responseWithResult(res))
@@ -128,9 +113,7 @@ exports.update = function(req, res) {
 
 // Deletes a Patient from the DB
 exports.destroy = function(req, res) {
-  var url_parts = url.parse(req.url,true);
-  var query = url_parts.query;
-  Patient.findByIdAsync(query.id)
+  Patient.findByIdAsync(req.params.id)
     .then(handleEntityNotFound(res))
     .then(removeEntity(res))
     .catch(handleError(res));
