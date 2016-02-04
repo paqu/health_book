@@ -49,7 +49,7 @@ Podzial zadan w zespole:
 Przewidywane srodowisko realizacji projektu:
 - jezyk programowania: 
  * aplikacja internetowa -- java script, hmtl, css
- * aplikacja mobilna -- [Piotr Szpilkowski, okreslic jakie jezyki programowania beda uzyte]
+ * aplikacja mobilna -- java
 - wykorzystywane biblioteki:
  * APLIKACJA INTERNETOWA:
   - mongoDB -- magazyn danych 
@@ -58,6 +58,8 @@ Przewidywane srodowisko realizacji projektu:
   - angularJS -- kontrola widoku w aplikacji uzytkownika
   - bootstrap -- zbior komplentch komponentow gotowych do uzycia na stronie internetowej (np. przycik, formularz, tableka)
   [dolaczyc diagram mapowania komponentow MEAN do modelu aplikacji internetowej -- PAWEL KUSZ]
+  * APLIKACJA MOBILNA:
+  - Gson -- do deserializacji danych pobranych z serwera i kreacji instancji obiektów
 - wykorzystywane standardy 
  * projekt prowadzoy bedzie w standardzie MEAN i MVC
 - krotkie uzasadnienie wybory technologii
@@ -79,3 +81,13 @@ Przewidywane srodowisko realizacji projektu:
 
 Przewidywane trudnosci:
 - brak przewidywanych trudnosci
+
+Opis uruchomienia aplikacji mobilnej:
+ * Wymagania
+  - Android Studio
+ * Środowisko
+  - API 16
+ * Instrukcja:
+  - Stworzyć przykładowy telefon w AVD
+  - w LoginActivity, ProfileActivity oraz ChildActivity należy podmienić adres IP na taki, pod którym znajduje się serwer.
+  - Zbudować i włączyć aplikację.
