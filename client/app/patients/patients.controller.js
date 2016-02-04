@@ -29,16 +29,21 @@ angular.module('ksiazeczkaZdrowiaApp')
         $scope.patients.splice($scope.patients.indexOf(patient),1);
     }
   })
-  .controller('PatientViewCtrl',function ($scope, $state, $stateParams, Patient, Auth) {
+  .controller('PatientViewCtrl',function ($scope, $state, $stateParams, Patient, Auth, User) {
     $scope.isAdmin = Auth.isAdmin;
     $scope.isDocotr= Auth.isDoctor;
     $scope.isParent= Auth.isParent;
     $scope.patient = Patient.get({id: $stateParams.id});
+    $scope.date = new Date().getFullYear()+'/'+(new Date().getMonth()+1)+'/'+ new Date().getDay();
+    $scope.newVisit = {};
+    $scope. me = User.get();
 
-    $scope.deletePatient = function (){
-        Patient.remove({id: $stateParams.id});
-        $state.go('patientsList');
-    }
+    $scope.addNewVisit = function (newVisit) {
+        newVisit.date = $scope.date;
+        newVisit.doctorSignature = $scope.me.firstname +' '+$scope.me.surname;
+        $scope.patient.visitsInfo.push(newVisit);
+        Patient.update({id:$stateParams.id},$scope.patient);
+    };
   })
   .controller('PatientNewCtrl',function ($scope, $state, Patient,User,Doctor) {
     $scope.patient = {
