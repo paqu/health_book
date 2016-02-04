@@ -10,32 +10,58 @@
             <h4 >Terminy kolejnych wizyt profilaktycznych</h4>
           </div>
           <div class="panel-body">
-            Lorem ipsum
+            <table class="table text-center">
+              <thead>
+                <th> Przyblizony termin</th>
+                <th> Rodzaj wizyty (szczepienie,bilans)</th>
+                <th> Podpis lekarza, pielegniarki</th>
+              </thead>
+              <tbody>
+                <tr ng-repeat="visit in patient.visitsInfo">
+                  <td>{{visit.date}}</td>
+                  <td>{{visit.kindOfVisit}}</td>
+                  <td>{{visit.doctorSignature}}</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
       </div>
       <div class="row">
         <div class="panel panel-default" id="ch1">
           <div class="panel-heading">
-            <h4>1. Dane dziecka</h4>
+            <h4>I. Dane osobowe dziecka</h4>
           </div>
-          <div class="panel-body">Lorem ipsum
+          <div class="panel-body">
+            <ol>
+              <li><b>Naziwsko:</b>{{patient.childInfo.surname}}</li>
+              <li><b>Imie/Imiona:</b>{{patient.childInfo.firstname}}</li>
+              <li><b>Data urodzenia:</b>{{patient.childInfo.dateOfBirth}}</li>
+              <li><b>Miejsce urodzenia:</b>{{patient.childInfo.placeOfBirth}}</li>
+              <li><b>Adres:</b>{{patient.childInfo.address}}</li>
+              <li><b>Pesel:</b>{{patient.childInfo.pesel}}</li>
+            </ol>
           </div>
         </div>
       </div>
       <div class="row">
         <div class="panel panel-default" id="ch2">
           <div class="panel-heading">
-            <h4>2. Dane o rodzinie</h4>
+            <h4>II. Dane rodzicow/opiekunow dziecka</h4>
           </div>
-          <div class="panel-body">Lorem ipsum
+          <div class="panel-body">
+            <ol>
+              <li><b>Imie i naziwsko matki/opiekuna prawnego:</b>{{patient.familyInfo.motherName}}</li>
+              <li><b>Imie i nazwisko ojca/opiekuna prawnego:</b>{{patient.familyInfo.fatherName}}</li>
+              <li><b>Numer telefonu kontaktoweg rodzicow/opiekunow prawnych:</b>{{patient.familyInfo.contactPhone}}</li>
+            </ol>
           </div>
         </div>
       </div>
       <div class="row">
         <div class="panel panel-default" id="ch3">
           <div class="panel-heading">
-            <h4>3. Okres prenatalny</h4>
+            <h4>III. Okres prenatalny</h4>
           </div>
           <div class="panel-body">Lorem ipsum
           </div>
@@ -44,7 +70,7 @@
       <div class="row">
         <div class="panel panel-default" id="ch4">
           <div class="panel-heading">
-            <h4>4. Porod</h4>
+            <h4>IV. Porod</h4>
           </div>
           <div class="panel-body">Lorem ipsum
           </div>
@@ -53,16 +79,22 @@
       <div class="row">
         <div class="panel panel-default" id="ch5">
           <div class="panel-heading">
-            <h4>5. Stan noworodka po urodzeniu</h4>
+            <h4>V. Stan noworodka po urodzeniu</h4>
           </div>
-          <div class="panel-body">Lorem ipsum
+          <div class="panel-body">
+            <ol>
+              <li><b>Urodzeniowa masa ciala:</b>{{patient.birthInfo.bodyWeight}}g</li>
+              <li><b>Dlugosc ciala:</b>{{patient.birthInfo.bodyLength}}cm</li>
+              <li><b>Obowd glowy:</b>{{patient.birthInfo.headCircuit}}cm</li>
+              <li><b>Obowd klatki piersiowej:</b>{{patient.birthInfo.chestCircuit}}cm</li>
+            </ol>
           </div>
         </div>
       </div>
       <div class="row">
         <div class="panel panel-default" id="ch6">
           <div class="panel-heading">
-            <h4>6. Obserwacje nowordka</p>
+            <h4>VI. Obserwacje nowordka</p>
           </div>
           <div class="panel-body">Lorem ipsum
           </div>
@@ -71,7 +103,7 @@
       <div class="row">
         <div class="panel panel-default" id="ch7">
           <div class="panel-heading">
-            <h4>7. Dane noworodka w dniu wypisu</h4>
+            <h4>VII. Dane noworodka w dniu wypisu</h4>
           </div>
           <div class="panel-body">Lorem ipsum
           </div>
@@ -80,7 +112,7 @@
       <div class="row">
         <div class="panel panel-default" id="ch8">
           <div class="panel-heading">
-            <h4>8. Wizyty patronazowe</h4>
+            <h4>VIII. Wizyty patronazowe</h4>
           </div>
           <div class="panel-body">Lorem ipsum
           </div>
@@ -89,7 +121,7 @@
       <div class="row">
         <div class="panel panel-default" id="ch9">
           <div class="panel-heading" >
-            <h4>9. Wizyty profilaktyczne - (0-4 roku zycia)</h4>
+            <h4>IX. Wizyty profilaktyczne - (0-4 roku zycia)</h4>
           </div>
           <div class="panel-body">Lorem ipsum
           </div>
@@ -98,7 +130,7 @@
       <div class="row">
         <div class="panel panel-default" id="ch10">
           <div class="panel-heading" >
-            <h4>10. Badania stanu uzebienia oraz zdrowia jamy ustnej</h4>
+            <h4>X. Badania stanu uzebienia oraz zdrowia jamy ustnej</h4>
           </div>
           <div class="panel-body">Lorem ipsum
           </div>
@@ -107,7 +139,7 @@
       <div class="row">
         <div class="panel panel-default" id="ch11">
           <div class="panel-heading" >
-            <h4>11. Wizyty profilaktyczne - (5-19 rok zycia)</h4>
+            <h4>XI. Wizyty profilaktyczne - (5-19 rok zycia)</h4>
           </div>
           <div class="panel-body">Lorem ipsum
           </div>
@@ -116,7 +148,7 @@
       <div class="row">
         <div class="panel panel-default" id="ch12">
           <div class="panel-heading" >
-            <h4>12. Badania stanu uzebienia oraz zdrowia jamy ustnej</h4>
+            <h4>XII. Badania stanu uzebienia oraz zdrowia jamy ustnej</h4>
           </div>
           <div class="panel-body">Lorem ipsum
           </div>
@@ -125,7 +157,7 @@
       <div class="row">
         <div class="panel panel-default" id="ch13">
           <div class="panel-heading" >
-            <h4>13. Przebyte choroby zakazne</h4>
+            <h4>XIII. Przebyte choroby zakazne</h4>
           </div>
           <div class="panel-body">Lorem ipsum
           </div>
@@ -134,7 +166,7 @@
       <div class="row">
         <div class="panel panel-default" id="ch14">
           <div class="panel-heading" >
-            <h4>14. Konsultacje specjalistyczne</h4>
+            <h4>XIV. Konsultacje specjalistyczne</h4>
           </div>
           <div class="panel-body">Lorem ipsum
           </div>
@@ -143,7 +175,7 @@
       <div class="row">
         <div class="panel panel-default" id="ch15">
           <div class="panel-heading" >
-            <h4>15. Uczulenia anafilaktyczne</h4>
+            <h4>XV. Uczulenia anafilaktyczne</h4>
           </div>
           <div class="panel-body">Lorem ipsum
           </div>
@@ -152,7 +184,7 @@
       <div class="row">
         <div class="panel panel-default" id="ch16">
           <div class="panel-heading">
-            <h4>16. Hospitalizacje</h4>
+            <h4>XVI. Hospitalizacje</h4>
           </div>
           <div class="panel-body">Lorem ipsum
           </div>
@@ -161,7 +193,7 @@
       <div class="row">
         <div class="panel panel-default" id="ch17">
           <div class="panel-heading" >
-            <h4>17. Zaopatrzenia w sprzet i wyroby medyczne</h4>
+            <h4>XVII. Zaopatrzenia w sprzet i wyroby medyczne</h4>
           </div>
           <div class="panel-body">Lorem ipsum
           </div>
@@ -170,7 +202,7 @@
       <div class="row">
         <div class="panel panel-default" id="ch18">
           <div class="panel-heading" >
-            <h4>18. Zwolnienia z zajec sportowych</h4>
+            <h4>XVIII. Zwolnienia z zajec sportowych</h4>
           </div>
           <div class="panel-body">Lorem ipsum
           </div>
@@ -179,7 +211,7 @@
       <div class="row">
         <div class="panel panel-default" id="ch19">
           <div class="panel-heading" >
-            <h4>19. Uwagi</h4>
+            <h4>XIX. Uwagi</h4>
           </div>
           <div class="panel-body">Lorem ipsum
           </div>
@@ -189,26 +221,28 @@
     <div class="col-md-4">
         <div class="list-group affix col-md-4">
           <a href="#ch0" class="list-group-item " style="padding:5px">Spis tresci</a>
-          <a href="#ch1" class="list-group-item"style="padding:5px">1. Dane dziecka</a>
-          <a href="#ch2" class="list-group-item"style="padding:5px">2. Dane o rodzinie</a>
-          <a href="#ch3" class="list-group-item"style="padding:5px">3. Okres prenatalny (ciaza)</a>
-          <a href="#ch4" class="list-group-item"style="padding:5px">4. Porod</a>
-          <a href="#ch5" class="list-group-item"style="padding:5px">5. Stan noworodka po urodzeniu</a>
-          <a href="#ch6" class="list-group-item"style="padding:5px">6. Obserwacje noworodka</a>
-          <a href="#ch7" class="list-group-item"style="padding:5px">7. Dane noworodka w dniu wypisu ...</a>
-          <a href="#ch8" class="list-group-item"style="padding:5px">8. Wizyty patronazowe</a>
-          <a href="#ch9" class="list-group-item"style="padding:5px">9. Wizyty profilaktyczne - (0-4 roku zycia)</a>
-          <a href="#ch10" class="list-group-item"style="padding:5px">10.Badanie stanu uzebienia oraz zdrowia jamy ustnej (do 4 roku zycia) </a>
-          <a href="#ch11" class="list-group-item"style="padding:5px">11. Wizyty profilaktyczne - (5-19 rok zycia)</a>
-          <a href="#ch12" class="list-group-item"style="padding:5px">12. Badania stanu uzebienia oraz zdrowia jamy ustnej</a>
-          <a href="#ch13" class="list-group-item"style="padding:5px">13. Przebyte choroby zakazne</a>
-          <a href="#ch14" class="list-group-item"style="padding:5px">14. Konsultacje specjalistyczne</a>
-          <a href="#ch15" class="list-group-item"style="padding:5px">15. Uczulenia i reakcje anafilaktyczne</a>
-          <a href="#ch16" class="list-group-item"style="padding:5px">16. Hospitalizacje</a>
-          <a href="#ch17" class="list-group-item"style="padding:5px">17. Zaopatrzenie w sprzet i wyroby medyczne</a>
-          <a href="#ch18" class="list-group-item"style="padding:5px">18. Zwolnienia z zajec sportowych</a>
-          <a href="#ch19" class="list-group-item"style="padding:5px">19. Uwagi</a><br>
-          <a style="float:right" ui-sref="patientsList" >Wroc do listy pacjentow</a>
+          <a href="#ch1" class="list-group-item"style="padding:5px">I. Dane osobowe dziecka</a>
+          <a href="#ch2" class="list-group-item"style="padding:5px">II. Dane rodzicow/opiekunow dziecka</a>
+          <a href="#ch3" class="list-group-item"style="padding:5px">III. Okres prenatalny (ciaza)</a>
+          <a href="#ch4" class="list-group-item"style="padding:5px">IV. Porod</a>
+          <a href="#ch5" class="list-group-item"style="padding:5px">V. Stan noworodka po urodzeniu</a>
+          <a href="#ch6" class="list-group-item"style="padding:5px">VI. Obserwacje noworodka</a>
+          <a href="#ch7" class="list-group-item"style="padding:5px">VII. Dane noworodka w dniu wypisu ...</a>
+          <a href="#ch8" class="list-group-item"style="padding:5px">VIII. Wizyty patronazowe</a>
+          <a href="#ch9" class="list-group-item"style="padding:5px">IX. Wizyty profilaktyczne - (0-4 roku zycia)</a>
+          <a href="#ch10" class="list-group-item"style="padding:5px">X.Badanie stanu uzebienia oraz zdrowia jamy ustnej (do 4 roku zycia) </a>
+          <a href="#ch11" class="list-group-item"style="padding:5px">XI. Wizyty profilaktyczne - (5-19 rok zycia)</a>
+          <a href="#ch12" class="list-group-item"style="padding:5px">XII. Badania stanu uzebienia oraz zdrowia jamy ustnej</a>
+          <a href="#ch13" class="list-group-item"style="padding:5px">XIII. Przebyte choroby zakazne</a>
+          <a href="#ch14" class="list-group-item"style="padding:5px">XIV. Konsultacje specjalistyczne</a>
+          <a href="#ch15" class="list-group-item"style="padding:5px">XV. Uczulenia i reakcje anafilaktyczne</a>
+          <a href="#ch16" class="list-group-item"style="padding:5px">XVI. Hospitalizacje</a>
+          <a href="#ch17" class="list-group-item"style="padding:5px">XVII. Zaopatrzenie w sprzet i wyroby medyczne</a>
+          <a href="#ch18" class="list-group-item"style="padding:5px">XVIII. Zwolnienia z zajec sportowych</a>
+          <a href="#ch19" class="list-group-item"style="padding:5px">XIX. Uwagi</a><br>
+          <a ng-show="isAdmin()"style="float:right" ui-sref="patientsList" >Wroc do listy pacjentow </a>
+          <a ng-show="isParent() && !isAdmin()"style="float:right" ui-sref="myChildren" >Wroc do listy dzieci</a>
+          <a ng-show="!isAdmin() && !isParent()"style="float:right" ui-sref="myPatients" >Wroc do listy pacjentow </a>
         </div>
     </div>
   </div>
