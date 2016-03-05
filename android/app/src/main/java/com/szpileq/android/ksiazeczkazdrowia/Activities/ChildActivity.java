@@ -53,6 +53,8 @@ public class ChildActivity extends AppCompatActivity {
 
         /*  filling up the health book    */
 
+        TextView childTitle = (TextView) findViewById(R.id.childNameSurnameText);
+
         TextView childProfileNameText = (TextView) findViewById(R.id.childProfileNameText);
         TextView childProfileSurnameText = (TextView) findViewById(R.id.childProfileSurnameText);
         TextView childProfileAddressText = (TextView) findViewById(R.id.childProfileAddressText);
@@ -75,6 +77,8 @@ public class ChildActivity extends AppCompatActivity {
         TextView childProfileDateText = (TextView) findViewById(R.id.childProfileDateText);
 
         //Child Info
+        if(null != kid.getChildInfo().getFirstname() && null != kid.getChildInfo().getSurname())
+            childTitle.setText(kid.getChildInfo().getFirstname() + kid.getChildInfo().getSurname());
         if(null != kid.getChildInfo().getFirstname())
             childProfileNameText.setText(kid.getChildInfo().getFirstname());
         if(null != kid.getChildInfo().getSurname())
