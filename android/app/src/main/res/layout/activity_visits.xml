@@ -1,0 +1,51 @@
+ <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingTop="15dp"
+        tools:context=".Activities.VisitsActivity"
+        android:weightSum="1">
+
+        <ImageView
+            android:id="@+id/imageView1"
+            android:layout_width="fill_parent"
+            android:layout_height="110dp"
+            android:background="#4e4e4e"
+            android:layout_gravity="center"
+            android:src="@drawable/logo" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Imię Nazwisko"
+            android:id="@+id/visitsChildNameSurnameText" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="15dp"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Przebyte wizyty:"
+            android:id="@+id/childCategoriesText"
+            android:layout_gravity="left" />
+     <LinearLayout
+         android:layout_width="fill_parent"
+         android:layout_height="fill_parent"
+         android:orientation="vertical"
+         android:layout_marginTop="15dp">
+
+         <ListView
+             android:layout_width="fill_parent"
+             android:layout_height="350dp"
+             android:scrollbarSize="3dp"
+             android:scrollbarStyle="outsideOverlay"
+             android:scrollbars="vertical"
+             android:scrollingCache="true"
+             android:id="@+id/visitsListView" />
+     </LinearLayout>
+ </LinearLayout>

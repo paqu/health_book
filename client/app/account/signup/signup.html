@@ -1,0 +1,92 @@
+<navbar></navbar>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <h1>Rejestracja w sytemie e-Ksiazeczka zdrowia</h1>
+    </div>
+    <div class="col-sm-12">
+      <form class="form" name="form" ng-submit="vm.register(form)" novalidate>
+        <div class="form-group" ng-class="{ 'has-success': form.firstname.$valid && vm.submitted,
+                                            'has-error': form.firstname.$invalid && vm.submitted }">
+          <label>Imie:</label>
+
+          <input type="text" name="firstname" class="form-control" ng-model="vm.user.firstname"
+                 required/>
+          <p class="help-block" ng-show="form.firstname.$error.required && vm.submitted">
+           Imie jest wymagane. 
+          </p>
+        </div>
+
+        <div class="form-group" ng-class="{ 'has-success': form.surname.$valid && vm.submitted,
+                                            'has-error': form.surname.$invalid && vm.submitted }">
+          <label>Nazwisko</label>
+
+          <input type="text" name="surname" class="form-control" ng-model="vm.user.surnaname"
+                 required/>
+          <p class="help-block" ng-show="form.surnname.$error.required && vm.submitted">
+            Nazwisko jest wymagane.
+          </p>
+        </div>
+
+        <div class="form-group" ng-class="{ 'has-success': form.email.$valid && vm.submitted,
+                                            'has-error': form.email.$invalid && vm.submitted }">
+          <label>Email</label>
+
+          <input type="email" name="email" class="form-control" ng-model="vm.user.email"
+                 required
+                 mongoose-error/>
+          <p class="help-block" ng-show="form.email.$error.email && vm.submitted">
+           Email nie wyglada na poprawny.
+          </p>
+          <p class="help-block" ng-show="form.email.$error.required && vm.submitted">
+           Jaki jest Twoj adres email?
+          </p>
+          <p class="help-block" ng-show="form.email.$error.mongoose">
+            {{ vm.errors.email }}
+          </p>
+        </div>
+
+        <div class="form-group" ng-class="{ 'has-success': form.password.$valid && vm.submitted,
+                                            'has-error': form.password.$invalid && vm.submitted }">
+          <label>Haslo</label>
+
+          <input type="password" name="password" class="form-control" ng-model="vm.user.password"
+                 ng-minlength="3"
+                 required
+                 mongoose-error/>
+          <p class="help-block"
+             ng-show="(form.password.$error.minlength || form.password.$error.required) && vm.submitted">
+            Haslo musi posiadac conajmniej 3 znaki.
+          </p>
+          <p class="help-block" ng-show="form.password.$error.mongoose">
+            {{ vm.errors.password }}
+          </p>
+        </div>
+
+        <div class="form-group" ng-class="{ 'has-success': form.confirmPassword.$valid && vm.submitted,
+                                            'has-error': form.confirmPassword.$invalid && vm.submitted }">
+          <label>Potwierdz haslo</label>
+          <input type="password" name="confirmPassword" class="form-control" ng-model="vm.user.confirmPassword"
+                 match="vm.user.password"
+                 ng-minlength="3" required/>
+          <p class="help-block"
+             ng-show="form.confirmPassword.$error.match && vm.submitted">
+           Podane hasla nie pasuja.
+          </p>
+        </div>
+
+        <div>
+          <button class="btn btn-inverse btn-lg btn-register" type="submit">
+            Rejestruj 
+          </button>
+          <a class="btn btn-default btn-lg btn-login" ui-sref="login">
+            Loguj
+          </a>
+        </div>
+
+      </form>
+    </div>
+  </div>
+  <hr>
+</div>

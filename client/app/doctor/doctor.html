@@ -1,0 +1,22 @@
+<navbar></navbar>
+<div class="container">
+  <div class="row">
+    <div class="col-md-7">
+      <h2>Profil lekarza:</h2>
+      <div class="text-muted" style="margin:20px 20px ">
+        <p><b>Imie:</b>{{me.firstname}} </p>
+        <p><b>Nazwisko:</b>{{me.surname}} </p>
+        <p><b>Email:</b>{{me.email}} </p>
+        <p>...</p>
+      </div>
+    </div>
+    <div class="col-md-5">
+      <img class="featurette-image img-fluid center-block" src="assets/images/profile.png" alt="profile photo">
+    </div>
+    <h3 style="text-align:left">O lekarzu:</h3>
+   <p>{{me.description}}</p>
+   <hr>
+
+   <a style="float:right" class="btn btn-info" ui-sref="editDoctor({id:me._id})" role="button">Edytuj profil</a>
+  </div>
+</div>

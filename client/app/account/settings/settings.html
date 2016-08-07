@@ -1,0 +1,53 @@
+<navbar></navbar>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <h1>Zmien haslo</h1>
+    </div>
+    <div class="col-sm-12">
+      <form class="form" name="form" ng-submit="vm.changePassword(form)" novalidate>
+
+        <div class="form-group">
+          <label>Aktualne haslo</label>
+
+          <input type="password" name="password" class="form-control" ng-model="vm.user.oldPassword"
+                 mongoose-error/>
+          <p class="help-block" ng-show="form.password.$error.mongoose">
+              {{ vm.errors.other }}
+          </p>
+        </div>
+
+        <div class="form-group">
+          <label>Nowe haslo</label>
+
+          <input type="password" name="newPassword" class="form-control" ng-model="vm.user.newPassword"
+                 ng-minlength="3"
+                 required/>
+          <p class="help-block"
+             ng-show="(form.newPassword.$error.minlength || form.newPassword.$error.required) && (form.newPassword.$dirty || vm.submitted)">
+            Haslo musi miec conajmniej 3 znaki.
+          </p>
+        </div>
+
+        <div class="form-group">
+          <label>Potwierdz haslo</label>
+
+          <input type="password" name="confirmPassword" class="form-control" ng-model="vm.user.confirmPassword"
+                 match="vm.user.newPassword"
+                 ng-minlength="3"
+                 required=""/>
+          <p class="help-block"
+             ng-show="form.confirmPassword.$error.match && vm.submitted">
+          Podane hasla nie pasuja.
+          </p>
+
+        </div>
+
+        <p class="help-block"> {{ vm.message }} </p>
+
+        <button class="btn btn-lg btn-primary" type="submit">Zapisz</button>
+      </form>
+    </div>
+  </div>
+</div>
