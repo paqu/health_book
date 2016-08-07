@@ -1,0 +1,94 @@
+# health_book
+
+
+Tytul projektu:
+- Ksiazeczka zdrowia
+
+Czlonkowie zespoly:
+- Piotr Szpilkowski
+- Maciej Sobkowski
+- Pawel Kusz
+
+Opis projektu:
+- Projekt stanowi elektryczna wersje ksiazeczki zdrowia dziecka. Ma ona stanowic ulatwienie komunikacji i pracy zawrowno lekarzowi jak i pacjentowi. Projekt zaklada wykonanie aplikacji w wersji webowej dla pacjenta i doktora oraz aplikacji mobilnej dla pacjenta. Uzytkownik rejestruje sei na stronie internetowej (jesli nie posiada jeszcze konta) lub loguje sie do swojego profilu. Logowanie nastepuje poprzez podananie identyfikatora (skladajacego sie z nr pesel i literki p w przypadku pacjetna i numeru id pracowanika i litery l w przypadku lekarza). Po zalogowaniu do systemu pacjent ma mozliwosc przejrzenia informacji na temat dotychczasowego przebiegu leczenia (informacje zawarte w zwyklej ksiazeczce zdrowia). Lekarzowi po zalogowaniu do systemu ukazuje sie lista pacjetnow, wybranie danego pacjenta umozliwia edytowanie karty zdrowia danego pacjenta. Do systemu ma rowniez dostep administrator, ktory dodaje/usuwa lekarza/pacjetna.
+[opis do poprawy]
+
+Zalozona funkcjonalnosc po pierwszym etapie (6.12.2015) 
+- mozliwosc zarejestrowania sie w systemie
+- mozliwosc zalogowanie sie w systemie 
+- mozliwoscs wylogowania sie z systemu
+
+Zakladana funckjonalnosc wersji koncowej
+-  Jako ADMIN dodaje lekarza do bazy danych
+-  Jako ADMIN usuwam lekarza z bazy danych 
+-  Jako ADMIN usuwam pacjetna z bazy danych
+-  Jako ADMIN edytuje lekarza w bazie danych
+-  Jako USER loguje sie do systemu 
+-  Jako USER wylogowuje sie z systemu
+-  Jako USER rejestruje sie w systemie 
+-  Jako USER edytuje dozwolone dane
+-  Jako USER przegladam ksiazeczke zdrowia
+-  Jako USER wyswietlam dane informacje lekarza prowadzacego
+-  Jako DOCTOR loguje sie do systemu
+-  Jako DOCTOR wylogwuje sie z systemu 
+-  Jako DOCTOR edutuje swoj profil 
+-  jako DOCTOR edutuje dozwolone dane pacjenta
+-  jako DOCTOR przegladam liste pacjetnow 
+-  jako DOCTOR wybieram pacjetna do edycji  
+-  jako DOCTRO wyszukuje pacjetna
+[funkcjonalnosc do poprawy]
+
+Opis architektury:
+archiutektura.pdf przedstawia uproszczony schemat architektur. Na schemacie wyroznic mozna cztery warstwy, uzytkownika, aplikacja uzytkownika, komunikacje miedzy aplikacja uzytkownika, a serwerem oraz ostatnia warstwe sewer i zaplecze danych. Uzytkownika podzielic mozemy na: pacjetna, doktora, administratora. Uzytkownik wyswietal wyniki przetwarzania plikacji, prowadzi interakcje za pomocna myszy, klawiatury, ekranu dotykowego. Aplikacja uzytkownika sklada sie z aplikacji internetowej urachamianej w przegladarce na komputerze stacjonarnym oraz z aplikacji mobilnej urochomianej na urzadzeniu mobilnym z systemem android, aplikacja mobilna zapewnie jedynie funkcjonalnosc zwiazana z uzytkownikiem w roli pacjenta. Komunikacja miedzy aplikacja uzytkownika, a serwerem bazuje na serii zadan(reqestow) HTTP GET/POST/AJAX, gdzie GET uzywane jest do pobierania danych z serwera, POST sluzy do wysylania danych do serwera i zadanie(request) AJAX to w rzeczywistosci zadanie GET lub POST, realizowane bezposrednio w przegladarce prez kod JavaScript. W sklad komponentu serwer wchodza serwer www, skrypty serwerowe, baza danych zwana rowniez zapleczem danych. Glownym zadaniem przypisanym serwerowi www jest oblsuga zadan(reqestow) generownych przez aplikacje uzytkownika. Skrypty serwerowe rozszerzaja podstawowa funkcjonalnosc serwera www. Ostatnia jednostka wchodzaca w sklad architektury jest baza danych, przechowujaca informacje oraz wspolpracujaca z pozostalymi elementami serwera.
+   
+Podzial zadan w zespole:
+- aplikacja mobilna: Piotr Szpilkowski
+- aplikacja webowa  Maciej Sobkowski
+- aplikacje back-end: Pawel Kusz
+[uszczegolnic podzial obowiazkow]
+
+Przewidywane srodowisko realizacji projektu:
+- jezyk programowania: 
+ * aplikacja internetowa -- java script, hmtl, css
+ * aplikacja mobilna -- java
+- wykorzystywane biblioteki:
+ * APLIKACJA INTERNETOWA:
+  - mongoDB -- magazyn danych 
+  - node.js -- uslugi zaplecza i skrypty serwerowd
+  - express -- modul rozszerzajacy srodowisko Node.js, zapewnia kluczowe komponenty do obslugi zadan(reqestow) internetowyhc 
+  - angularJS -- kontrola widoku w aplikacji uzytkownika
+  - bootstrap -- zbior komplentch komponentow gotowych do uzycia na stronie internetowej (np. przycik, formularz, tableka)
+  [dolaczyc diagram mapowania komponentow MEAN do modelu aplikacji internetowej -- PAWEL KUSZ]
+  * APLIKACJA MOBILNA:
+  - Gson -- do deserializacji danych pobranych z serwera i kreacji instancji obiektów
+- wykorzystywane standardy 
+ * projekt prowadzoy bedzie w standardzie MEAN i MVC
+- krotkie uzasadnienie wybory technologii
+ * Node.js:
+    - mozliwosc korzystania z kodu JavaScript na kazdym etapie pracy (serwer, skrypty serwerowe, aplikacja uzytkownika)
+    - skalowalnosc sterowania zdarzeniami -- wykorzystanie modelu zdarzen
+    - rozszerzalnosc -- aktywna grupa programistow zapewniajaca modulu urozmaicajace funkcjonalnosc aplikacji
+    - szybka implementacja -- latwosc konfiguracji srodowiska Node.js
+ * MongoDb:
+    - bazowanie na dokumentach -- mozliwosc odzwierciedlania danych w bazie do formatu uzywanego przez skrypty serwerowe, aplikacje uzytkownika
+    - duza wydajnosc -- obsluga duzego ruchu siecioweg
+    - wysoka skalowalnosc -- struktura bazy danych Mongo
+ * Express
+    - zarzadzanie trasami
+    - obsluga bledow
+ * AngularJS
+    - wiazanie danych -- przejrzysta metoda wiazania danych z elementami HTML, mechanizm zasiegow
+    - przejrzystosc -- wymusza pisania przejszysego i logicznego kodu
+
+Przewidywane trudnosci:
+- brak przewidywanych trudnosci
+
+Opis uruchomienia aplikacji mobilnej:
+ * Wymagania
+  - Android Studio
+ * Środowisko
+  - API 16
+ * Instrukcja:
+  - Stworzyć przykładowy telefon w AVD
+  - w LoginActivity, ProfileActivity oraz ChildActivity należy podmienić adres IP na taki, pod którym znajduje się serwer.
+  - Zbudować i włączyć aplikację.
